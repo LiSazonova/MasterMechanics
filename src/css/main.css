@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #2e2e2e;
+  color: white;
+  font-size: 18px;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.header {
+  position: relative;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.header__navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__nav {
+  display: flex;
+  gap: 50px;
+  font-weight: 600;
+  font-size: 24px;
+}
+.header__menu {
+  display: flex;
+  gap: 50px;
+}
+.header__link {
+  transition: all 0.3s ease;
+}
+.header__link:hover {
+  color: #F66E21;
+  cursor: pointer;
+}
+.header__logo {
+  margin-right: 15px;
+  margin-left: 15px;
+  transition: all 0.3s ease;
+}
+.header__logo:hover {
+  transform: scale(1.1);
+}
+
+.hero {
+  position: absolute;
+  top: 0;
+  background: linear-gradient(0deg, rgb(46, 46, 46) 10%, rgba(107, 107, 107, 0.1) 50%), url(../../../src/images/bg/bg-hero.jpg);
+  background-size: cover;
+  background-position: center;
+  min-width: 100%;
+  height: 100vh;
+  padding: 500px 100px 200px;
+}
+.hero__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+.hero__text {
+  max-width: 700px;
+}
+.hero__accent {
+  font-weight: 600;
+  color: #F66E21;
+}
+.hero__title {
+  font-weight: 600;
+  font-size: 72px;
+  line-height: 80px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+.hero__title .hero__highlight {
+  color: #F66E21;
+}
+.hero__description {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 30px;
+  text-align: left;
+}
+.hero__button .btn {
+  background-color: #F66E21;
+  border: 1px solid #F66E21;
+  border-radius: 10px;
+  color: white;
+  padding: 10px 20px;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+.hero__button .btn:hover {
+  background-color: white;
+  color: #F66E21;
+}/*# sourceMappingURL=main.css.map */
