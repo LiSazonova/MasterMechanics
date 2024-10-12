@@ -48,7 +48,7 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1600px;
   padding: 0 15px;
   margin: 0 auto;
 }
@@ -62,14 +62,13 @@ body {
 }
 .header__navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 .header__nav {
   display: flex;
   gap: 50px;
   font-weight: 600;
-  font-size: 24px;
 }
 .header__menu {
   display: flex;
@@ -79,7 +78,7 @@ body {
   transition: all 0.3s ease;
 }
 .header__link:hover {
-  color: #F66E21;
+  color: #d9611c;
   cursor: pointer;
 }
 .header__logo {
@@ -92,14 +91,14 @@ body {
 }
 
 .hero {
-  position: absolute;
+  position: relative;
   top: 0;
   background: linear-gradient(0deg, rgb(46, 46, 46) 10%, rgba(107, 107, 107, 0.1) 50%), url(../../../src/images/bg/bg-hero.jpg);
   background-size: cover;
   background-position: center;
   min-width: 100%;
-  height: 100vh;
-  padding: 500px 100px 200px;
+  min-height: 100vh;
+  padding: 400px 100px 200px;
 }
 .hero__content {
   display: flex;
@@ -111,7 +110,7 @@ body {
 }
 .hero__accent {
   font-weight: 600;
-  color: #F66E21;
+  color: #d9611c;
 }
 .hero__title {
   font-weight: 600;
@@ -121,7 +120,7 @@ body {
   text-align: left;
 }
 .hero__title .hero__highlight {
-  color: #F66E21;
+  color: #d9611c;
 }
 .hero__description {
   font-weight: 400;
@@ -129,16 +128,135 @@ body {
   line-height: 30px;
   text-align: left;
 }
+.hero__button {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 .hero__button .btn {
-  background-color: #F66E21;
-  border: 1px solid #F66E21;
+  border: 1px solid #d9611c;
   border-radius: 10px;
-  color: white;
+  padding: 10px 20px;
+  font-size: 24px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.hero__button .btn--primary {
+  background-color: #d9611c;
+  color: #ffffff;
+}
+.hero__button .btn--primary:hover {
+  background-color: transparent;
+  color: #d9611c;
+}
+.hero__button .btn--secondary {
+  background-color: transparent;
+  color: #d9611c;
+}
+.hero__button .btn--secondary:hover {
+  background-color: #d9611c;
+  color: #ffffff;
+}
+
+.about {
+  padding: 100px 50px;
+  position: relative;
+}
+.about::before, .about::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, #2e2e2e 40%, #F66E21 100%);
+}
+.about::before {
+  top: 0;
+  left: 0;
+}
+.about::after {
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(to left, #2e2e2e 40%, #F66E21 100%);
+}
+.about__content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.about__text {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px;
+  max-width: 40%;
+  z-index: 1;
+}
+.about__text::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: -45%;
+  width: 100%;
+  height: 100%;
+  background: url(../../../src/images/bg/disk.png) no-repeat center center;
+  background-size: contain;
+  opacity: 0.1;
+  z-index: -1;
+}
+.about__accent {
+  font-weight: 600;
+  color: #d9611c;
+}
+.about__title {
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 56px;
+}
+.about__description {
+  font-weight: 400;
+  line-height: 30px;
+}
+.about__btn {
+  background-color: #d9611c;
+  border: 1px solid #d9611c;
+  border-radius: 10px;
+  color: #ffffff;
   padding: 10px 20px;
   font-size: 18px;
   transition: all 0.3s ease;
+  margin-top: 20px;
+  width: 30%;
+  text-align: center;
 }
-.hero__button .btn:hover {
-  background-color: white;
-  color: #F66E21;
+.about__btn:hover {
+  background-color: transparent;
+  color: #d9611c;
+  cursor: pointer;
+}
+.about__gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+  grid-template-rows: repeat(2, 300px);
+  gap: 20px;
+  filter: brightness(70%);
+}
+.about__gallery-img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.5);
+}
+.about__gallery-img:hover {
+  transform: scale(1.05);
+}
+.about__image {
+  max-width: 50%;
+}
+
+.item4 {
+  grid-column: span 3;
 }/*# sourceMappingURL=main.css.map */

@@ -7,7 +7,7 @@
 
     &__navbar {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
     }
 
@@ -15,7 +15,6 @@
         display: flex;
         gap: 50px;
         font-weight: 600;
-        font-size: 24px;
     }
 
     &__menu {

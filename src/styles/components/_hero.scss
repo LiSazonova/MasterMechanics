@@ -1,12 +1,14 @@
 .hero {
-    position: absolute;
+    position: relative;
     top: 0;
     background: linear-gradient(0deg, rgba(46, 46, 46, 1) 10%, rgba(107, 107, 107, 0.1) 50%), url(../../../src/images/bg/bg-hero.jpg);
     background-size: cover;
     background-position: center;
     min-width: 100%;
-    height: 100vh;
-    padding: 500px 100px 200px;
+    min-height: 100vh;
+    padding: 400px 100px 200px;
+
+    
 
     &__content {
         display: flex;
@@ -43,19 +45,40 @@
     }
 
     &__button {
+
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
         .btn {
-            background-color: $accent-color;
             border: 1px solid$accent-color;
             border-radius: 10px;
-            color: white;
+            
             padding: 10px 20px;
-            font-size: 18px;
+            font-size: 24px;
+            font-weight: 600;
             transition: $transition;
         }
 
-        .btn:hover {
-            background-color: white;
-            color: $accent-color;
+        .btn--primary {
+            background-color: $accent-color;
+            color: $main-text-color;
+
+            &:hover {
+                background-color: transparent;
+                color: $accent-color;
+            }
         }
+
+        .btn--secondary {
+            background-color: transparent;
+            color: $accent-color;
+
+            &:hover {
+                background-color: $accent-color;
+                color: $main-text-color;
+            }
+        }
+
+        
     }
 }
