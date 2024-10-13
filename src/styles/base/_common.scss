@@ -14,3 +14,9 @@ body {
     padding: 0 15px;
     margin: 0 auto;
 }
+
+.accent {
+    text-transform: uppercase;
+        font-weight: 600;
+        color: $accent-color;
+}
