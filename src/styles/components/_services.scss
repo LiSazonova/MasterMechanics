@@ -3,19 +3,19 @@
     position: relative;
 
     &::after {
-            content: "";
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                height: 3px;
-                background: linear-gradient(to right, #2e2e2e 40%, #F66E21 100%);
-            }
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(to right, #2e2e2e 40%, #F66E21 100%);
+    }
 
-    &__text{
+    &__text {
         display: flex;
-            flex-direction: column;
-            gap: 30px;
+        flex-direction: column;
+        gap: 30px;
         text-align: right;
         margin-bottom: 50px;
     }
@@ -24,12 +24,11 @@
 .swiper {
     width: 100%;
     margin: 0 auto;
-        overflow: hidden;
+    overflow: hidden;
 }
 
 .swiper-wrapper {
     display: flex;
-        gap: 20px;
 }
 
 .swiper-slide {
@@ -45,15 +44,15 @@
 .swiper-slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 0.3s ease;
 }
 
 .swiper-btns {
     display: flex;
-        width: 100%;
-        gap: 20px;
-        margin-bottom: 10px;
+    width: 100%;
+    gap: 20px;
+    margin-bottom: 10px;
 }
 
 .swiper-btn {
@@ -63,5 +62,5 @@
 }
 
 .swiper-btn svg {
-    color: #F66E21 !important;
+    fill: $accent-color;
 }

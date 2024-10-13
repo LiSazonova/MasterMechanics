@@ -59,6 +59,12 @@ body {
   color: #d9611c;
 }
 
+.title {
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 56px;
+}
+
 .header {
   position: relative;
   padding: 20px;
@@ -97,7 +103,7 @@ body {
 }
 
 .hero {
-  position: relative;
+  position: absolute;
   top: 0;
   background: linear-gradient(0deg, rgb(46, 46, 46) 10%, rgba(107, 107, 107, 0.1) 50%), url(../../../src/images/bg/bg-hero.jpg);
   background-size: cover;
@@ -161,7 +167,7 @@ body {
 }
 
 .about {
-  padding: 100px 50px;
+  padding: 100vh 50px 100px;
   position: relative;
 }
 .about::before, .about::after {
@@ -287,7 +293,6 @@ body {
 
 .swiper-wrapper {
   display: flex;
-  gap: 20px;
 }
 
 .swiper-slide {
@@ -303,8 +308,8 @@ body {
 .swiper-slide img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
   transition: transform 0.3s ease;
 }
 
@@ -322,5 +327,66 @@ body {
 }
 
 .swiper-btn svg {
-  fill: #F66E21;
+  fill: #d9611c;
+}
+
+.testimonials {
+  padding: 100px 50px;
+  position: relative;
+}
+.testimonials::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to left, #2e2e2e 40%, #F66E21 100%);
+}
+.testimonials__content {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.testimonials__text {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  text-align: center;
+}
+.testimonials__description {
+  font-weight: 400;
+  line-height: 30px;
+}
+.testimonials__cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.testimonials__card {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  min-width: 320px;
+  min-height: 400px;
+  transition: all 0.3s ease;
+}
+.testimonials__card-review {
+  flex-grow: 1;
+  font-size: 16px;
+}
+.testimonials__card-name {
+  font-weight: 700;
+  line-height: 24px;
+}
+.testimonials img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }/*# sourceMappingURL=main.css.map */
