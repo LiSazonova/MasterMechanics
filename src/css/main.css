@@ -475,4 +475,28 @@ body {
 .contacts .btn--primary:hover {
   background-color: transparent;
   color: #d9611c;
+}
+
+.footer {
+  padding: 100px 50px 50px;
+}
+.footer__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  margin-bottom: 50px;
+}
+.footer__social-list {
+  display: flex;
+  gap: 20px;
+}
+.footer svg {
+  fill: #ffffff;
+}
+.footer svg:hover {
+  fill: #d9611c;
+}
+.footer__copyright-text {
+  text-align: center;
 }/*# sourceMappingURL=main.css.map */
