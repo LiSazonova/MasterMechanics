@@ -1,11 +1,9 @@
-import Swiper from './swiper/bundle';
-
 document.addEventListener('DOMContentLoaded', () => {
     const swiperInstance = new Swiper('.mySwiper', {
         effect: 'slide',
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+            nextEl: '.custom-button-next',
+            prevEl: '.custom-button-prev',
         },
         spaceBetween: 30,
         slidesPerView: 3,
