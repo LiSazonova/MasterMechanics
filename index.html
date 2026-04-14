@@ -21,147 +21,179 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Master Mechanics</title>
     <link rel="icon" href="./src/images/icons/favicon.ico">
-    <link rel="stylesheet" href="./src/css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400..900&family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
-<body>
-    <header class="header">
-        <div class="container">
-            <div class="header__navbar">
-                <nav class="header__nav">
-                    <ul class="header__menu">
-                        <li class="header__menu-item"><a href="" class="header__link">About</a></li>
-                        <li class="header__menu-item"><a href="" class="header__link">Services</a></li>
-                        <li class="header__menu-item"><a href="" class="header__link">Gallery</a></li>
+<body class="bg-[#2e2e2e] font-['Poppins',sans-serif] text-[18px] text-white">
+    <header class="relative z-10 bg-white/20 px-5 py-5 shadow-[0px_2px_6px_2px_rgba(0,0,0,0.5)]">
+        <div class="mx-auto w-full max-w-[1600px] px-[15px]">
+            <div class="flex items-center justify-around">
+                <nav class="flex gap-[50px] font-semibold">
+                    <ul class="flex gap-[50px]">
+                        <li><a href="" class="transition-all duration-300 ease-in-out hover:text-[#d9611c]">About</a></li>
+                        <li><a href="" class="transition-all duration-300 ease-in-out hover:text-[#d9611c]">Services</a></li>
+                        <li><a href="" class="transition-all duration-300 ease-in-out hover:text-[#d9611c]">Gallery</a></li>
                     </ul>
                 </nav>
 
-                <div class="header__logo">
+                <div class="mx-[15px] transition-all duration-300 ease-in-out hover:scale-110">
                     <a href="./index.html">
                         <img src="./src/images/Logo_white.png" alt="Master Mechanics Logo">
                     </a>
                 </div>
 
-                <nav class="header__nav">
-                    <ul class="header__menu">
-                        <li class="header__menu-item"><a href="" class="header__link">Works</a></li>
-                        <li class="header__menu-item"><a href="" class="header__link">Contacts</a></li>
-                        <li class="header__menu-item"><a href="" class="header__link">Booking</a></li>
+                <nav class="flex gap-[50px] font-semibold">
+                    <ul class="flex gap-[50px]">
+                        <li><a href="" class="transition-all duration-300 ease-in-out hover:text-[#d9611c]">Works</a></li>
+                        <li><a href="" class="transition-all duration-300 ease-in-out hover:text-[#d9611c]">Contacts</a></li>
+                        <li><a href="" class="transition-all duration-300 ease-in-out hover:text-[#d9611c]">Booking</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
 
-    <main class="main">
-        <section class="hero">
-            <div class="hero__content">
-                <div class="hero__text">
-                    <p class="accent">It your favorite service</p>
-                    <h1 class="hero__title">If your car <span class="hero__highlight">hurts</span> bring it to us</h1>
-                    <p class="hero__description">
+    <main>
+        <section class="absolute top-0 min-h-screen w-full bg-cover bg-center px-[100px] pb-[200px] pt-[400px]"
+            style="background-image: linear-gradient(0deg, rgba(46, 46, 46, 1) 10%, rgba(107, 107, 107, 0.1) 50%), url('./src/images/bg/bg-hero.jpg');">
+            <div class="flex items-end justify-between">
+                <div class="max-w-[700px]">
+                    <p class="font-semibold uppercase text-[#d9611c]">It your favorite service</p>
+                    <h1 class="mb-5 text-left text-[72px] font-semibold leading-[80px]">If your car <span
+                            class="text-[#d9611c]">hurts</span> bring it to us</h1>
+                    <p class="text-left text-[24px] font-normal leading-[30px]">
                         Professional auto service you can trust. From routine maintenance to complex
                         repairs, we’ll get your car back on the road quickly and safely.
                         Your vehicle is in good hands with our experienced technicians.
                     </p>
                 </div>
-                <div class="hero__button">
-                    <button class="btn btn--primary">Get Services</button>
-                    <button class="btn btn--secondary">Contact us</button>
+                <div class="flex flex-col gap-5">
+                    <button
+                        class="rounded-[10px] border border-[#d9611c] bg-[#d9611c] px-5 py-2.5 text-[24px] font-semibold text-white transition-all duration-300 ease-in-out hover:bg-transparent hover:text-[#d9611c]">Get
+                        Services</button>
+                    <button
+                        class="rounded-[10px] border border-[#d9611c] bg-transparent px-5 py-2.5 text-[24px] font-semibold text-[#d9611c] transition-all duration-300 ease-in-out hover:bg-[#d9611c] hover:text-white">Contact
+                        us</button>
                 </div>
             </div>
         </section>
-        <section class="about">
-            <div class="container">
-                <div class="about__content">
-                    <div class="about__text">
-                        <p class="accent">About Us</p>
-                        <h2 class="title">Our reputation speaks for itself</h2>
-                        <p class="about__description">
+        <section class="relative px-[50px] pb-[100px] pt-[100vh]">
+            <div
+                class="absolute left-0 top-1/2 h-[3px] w-full bg-[linear-gradient(to_right,#2e2e2e_40%,#F66E21_100%)]">
+            </div>
+            <div
+                class="absolute bottom-0 right-0 h-[3px] w-full bg-[linear-gradient(to_left,#2e2e2e_40%,#F66E21_100%)]">
+            </div>
+            <div class="mx-auto w-full max-w-[1600px] px-[15px]">
+                <div class="flex items-center justify-between">
+                    <div class="relative z-[1] flex max-w-[40%] flex-col gap-[30px]">
+                        <div
+                            class="pointer-events-none absolute -left-[45%] -top-[40%] -z-10 h-full w-full bg-contain bg-center bg-no-repeat opacity-10"
+                            style="background-image: url('./src/images/bg/disk.png');">
+                        </div>
+                        <p class="font-semibold uppercase text-[#d9611c]">About Us</p>
+                        <h2 class="text-[48px] font-semibold leading-[56px]">Our reputation speaks for itself</h2>
+                        <p class="font-normal leading-[30px]">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
                             exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </p>
-                        <a class="about__btn">Learn More</a>
+                        <a
+                            class="mt-5 w-[30%] rounded-[10px] border border-[#d9611c] bg-[#d9611c] px-5 py-2.5 text-center text-[18px] text-white transition-all duration-300 ease-in-out hover:cursor-pointer hover:bg-transparent hover:text-[#d9611c]">Learn
+                            More</a>
                     </div>
-                    <div class="about__gallery">
-                        <img class="about__gallery-img item1" src="./src/images/pictures/IMG_89D5F8332748-1.jpeg"
+                    <div class="grid grid-cols-3 grid-rows-2 gap-5 brightness-75">
+                        <img class="h-full w-full rounded-[10px] object-cover shadow-[0px_2px_6px_2px_rgba(0,0,0,0.5)] transition-transform duration-300 ease-in-out hover:scale-105"
+                            src="./src/images/pictures/IMG_89D5F8332748-1.jpeg"
                             alt="Gallery Image 1">
-                        <img class="about__gallery-img item2" src="./src/images/pictures/IMG_5078.jpg"
+                        <img class="h-full w-full rounded-[10px] object-cover shadow-[0px_2px_6px_2px_rgba(0,0,0,0.5)] transition-transform duration-300 ease-in-out hover:scale-105"
+                            src="./src/images/pictures/IMG_5078.jpg"
                             alt="Gallery Image 2">
-                        <img class="about__gallery-img item3" src="./src/images/pictures/IMG_7141.jpg"
+                        <img class="h-full w-full rounded-[10px] object-cover shadow-[0px_2px_6px_2px_rgba(0,0,0,0.5)] transition-transform duration-300 ease-in-out hover:scale-105"
+                            src="./src/images/pictures/IMG_7141.jpg"
                             alt="Gallery Image 3">
-                        <img class="about__gallery-img item4" src="./src/images/pictures/IMG_0220.jpg"
+                        <img class="col-span-3 h-full w-full rounded-[10px] object-cover shadow-[0px_2px_6px_2px_rgba(0,0,0,0.5)] transition-transform duration-300 ease-in-out hover:scale-105"
+                            src="./src/images/pictures/IMG_0220.jpg"
                             alt="Gallery Image 4">
                     </div>
                 </div>
             </div>
         </section>
-        <section class="services">
-            <div class="container">
-                <div class="services__content">
-                    <div class="services__text">
-                        <p class="accent">What we offer</p>
-                        <h2 class="title">Our services</h2>
+        <section class="relative px-[50px] py-[100px]">
+            <div
+                class="absolute bottom-0 left-0 h-[3px] w-full bg-[linear-gradient(to_right,#2e2e2e_40%,#F66E21_100%)]">
+            </div>
+            <div class="mx-auto w-full max-w-[1600px] px-[15px]">
+                <div>
+                    <div class="mb-[50px] flex flex-col gap-[30px] text-right">
+                        <p class="font-semibold uppercase text-[#d9611c]">What we offer</p>
+                        <h2 class="text-[48px] font-semibold leading-[56px]">Our services</h2>
                     </div>
 
-                    <div class="swiper-btns">
-                        <button type="button" class="swiper-btn custom-button-prev">
-                            <svg width="32" height="32">
+                    <div class="swiper-btns mb-2.5 flex w-full gap-5">
+                        <button type="button" class="swiper-btn custom-button-prev border-none bg-transparent">
+                            <svg width="32" height="32" class="fill-[#d9611c]">
                                 <use href="./src/images/icons/icons.svg#icon-arrow-left"></use>
                             </svg>
                         </button>
-                        <button type="button" class="swiper-btn custom-button-next">
-                            <svg width="32" height="32">
+                        <button type="button" class="swiper-btn custom-button-next border-none bg-transparent">
+                            <svg width="32" height="32" class="fill-[#d9611c]">
                                 <use href="./src/images/icons/icons.svg#icon-arrow-right"></use>
                             </svg>
                         </button>
                     </div>
 
-                    <div class="swiper mySwiper">
+                    <div class="swiper mySwiper mx-auto w-full overflow-hidden">
 
 
-                        <div class="swiper-wrapper mySwiper">
-                            <div class="swiper-slide">
-                                <img src="./src/images/pictures/coming_soon.jpg" alt="Service 1" />
+                        <div class="swiper-wrapper mySwiper flex">
+                            <div class="swiper-slide flex h-[300px] min-w-[250px] flex-col items-center justify-center transition-transform duration-300 ease-in-out">
+                                <img class="h-full w-full object-contain transition-transform duration-300 ease-in-out"
+                                    src="./src/images/pictures/coming_soon.jpg" alt="Service 1" />
                                 <p>Service 1</p>
                             </div>
-                            <div class="swiper-slide">
-                                <img src="./src/images/pictures/coming_soon.jpg" alt="Service 2" />
+                            <div class="swiper-slide flex h-[300px] min-w-[250px] flex-col items-center justify-center transition-transform duration-300 ease-in-out">
+                                <img class="h-full w-full object-contain transition-transform duration-300 ease-in-out"
+                                    src="./src/images/pictures/coming_soon.jpg" alt="Service 2" />
                                 <p>Service 2</p>
                             </div>
-                            <div class="swiper-slide">
-                                <img src="./src/images/pictures/coming_soon.jpg" alt="Service 2" />
+                            <div class="swiper-slide flex h-[300px] min-w-[250px] flex-col items-center justify-center transition-transform duration-300 ease-in-out">
+                                <img class="h-full w-full object-contain transition-transform duration-300 ease-in-out"
+                                    src="./src/images/pictures/coming_soon.jpg" alt="Service 2" />
                                 <p>Service 3</p>
                             </div>
-                            <div class="swiper-slide">
-                                <img src="./src/images/pictures/coming_soon.jpg" alt="Service 2" />
+                            <div class="swiper-slide flex h-[300px] min-w-[250px] flex-col items-center justify-center transition-transform duration-300 ease-in-out">
+                                <img class="h-full w-full object-contain transition-transform duration-300 ease-in-out"
+                                    src="./src/images/pictures/coming_soon.jpg" alt="Service 2" />
                                 <p>Service 4</p>
                             </div>
-                            <div class="swiper-slide">
-                                <img src="./src/images/pictures/coming_soon.jpg" alt="Service 2" />
+                            <div class="swiper-slide flex h-[300px] min-w-[250px] flex-col items-center justify-center transition-transform duration-300 ease-in-out">
+                                <img class="h-full w-full object-contain transition-transform duration-300 ease-in-out"
+                                    src="./src/images/pictures/coming_soon.jpg" alt="Service 2" />
                                 <p>Service 5</p>
                             </div>
-                            <div class="swiper-slide">
-                                <img src="./src/images/pictures/coming_soon.jpg" alt="Service 2" />
+                            <div class="swiper-slide flex h-[300px] min-w-[250px] flex-col items-center justify-center transition-transform duration-300 ease-in-out">
+                                <img class="h-full w-full object-contain transition-transform duration-300 ease-in-out"
+                                    src="./src/images/pictures/coming_soon.jpg" alt="Service 2" />
                                 <p>Service 6</p>
                             </div>
-                            <div class="swiper-slide">
-                                <img src="./src/images/pictures/coming_soon.jpg" alt="Service 2" />
+                            <div class="swiper-slide flex h-[300px] min-w-[250px] flex-col items-center justify-center transition-transform duration-300 ease-in-out">
+                                <img class="h-full w-full object-contain transition-transform duration-300 ease-in-out"
+                                    src="./src/images/pictures/coming_soon.jpg" alt="Service 2" />
                                 <p>Service 7</p>
                             </div>
-                            <div class="swiper-slide">
-                                <img src="./src/images/pictures/coming_soon.jpg" alt="Service 2" />
+                            <div class="swiper-slide flex h-[300px] min-w-[250px] flex-col items-center justify-center transition-transform duration-300 ease-in-out">
+                                <img class="h-full w-full object-contain transition-transform duration-300 ease-in-out"
+                                    src="./src/images/pictures/coming_soon.jpg" alt="Service 2" />
                                 <p>Service 8</p>
                             </div>
-                            <div class="swiper-slide">
-                                <img src="./src/images/pictures/coming_soon.jpg" alt="Service 2" />
+                            <div class="swiper-slide flex h-[300px] min-w-[250px] flex-col items-center justify-center transition-transform duration-300 ease-in-out">
+                                <img class="h-full w-full object-contain transition-transform duration-300 ease-in-out"
+                                    src="./src/images/pictures/coming_soon.jpg" alt="Service 2" />
                                 <p>Service 9</p>
                             </div>
 
@@ -170,102 +202,128 @@
                 </div>
             </div>
         </section>
-        <section class="testimonials">
-            <div class="testimonials__content">
-                <div class="testimonials__text">
-                    <p class="accent">Testimonials</p>
-                    <h2 class="title">What our clients say</h2>
-                    <p class="testimonials__description">
+        <section class="relative px-[50px] py-[100px]">
+            <div
+                class="absolute bottom-0 left-0 h-[3px] w-full bg-[linear-gradient(to_left,#2e2e2e_40%,#F66E21_100%)]">
+            </div>
+            <div class="flex flex-col gap-[50px]">
+                <div class="flex flex-col gap-[30px] text-center">
+                    <p class="font-semibold uppercase text-[#d9611c]">Testimonials</p>
+                    <h2 class="text-[48px] font-semibold leading-[56px]">What our clients say</h2>
+                    <p class="font-normal leading-[30px]">
                         Read what our satisfied customers have to say about our service.
                     </p>
                 </div>
-                <div class="testimonials__cards">
+                <div class="flex justify-center gap-5">
 
-                    <div class="testimonials__card">
-                        <img src="./src/images/testimonials/avatar.png" alt="Testimonial 1" />
-                        <p class="testimonials__card-review">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    <div
+                        class="flex min-h-[400px] w-[calc((100%-60px)/4)] flex-col justify-between gap-5 rounded-[10px] bg-white/20 p-5 shadow-[0px_2px_6px_2px_rgba(0,0,0,0.5)] transition-all duration-300 ease-in-out hover:scale-105">
+                        <img class="h-20 w-20 rounded-full object-cover" src="./src/images/testimonials/avatar.png"
+                            alt="Testimonial 1" />
+                        <p class="grow text-[16px]">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                             Optio sunt cumque earum suscipit, magnam vitae?</p>
-                        <p class="testimonials__card-name">John Doe</p>
+                        <p class="text-[18px] font-bold leading-6">John Doe</p>
                     </div>
-                    <div class="testimonials__card">
-                        <img src="./src/images/testimonials/avatar.png" alt="Testimonial 1" />
-                        <p class="testimonials__card-review">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    <div
+                        class="flex min-h-[400px] w-[calc((100%-60px)/4)] flex-col justify-between gap-5 rounded-[10px] bg-white/20 p-5 shadow-[0px_2px_6px_2px_rgba(0,0,0,0.5)] transition-all duration-300 ease-in-out hover:scale-105">
+                        <img class="h-20 w-20 rounded-full object-cover" src="./src/images/testimonials/avatar.png"
+                            alt="Testimonial 1" />
+                        <p class="grow text-[16px]">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                             Praesentium ut tempora repudiandae magnam doloribus perspiciatis soluta nemo exercitationem
                             consectetur corporis!</p>
-                        <p class="testimonials__card-name">Alice Bart</p>
+                        <p class="text-[18px] font-bold leading-6">Alice Bart</p>
                     </div>
-                    <div class="testimonials__card">
-                        <img src="./src/images/testimonials/avatar.png" alt="Testimonial 1" />
-                        <p class="testimonials__card-review">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    <div
+                        class="flex min-h-[400px] w-[calc((100%-60px)/4)] flex-col justify-between gap-5 rounded-[10px] bg-white/20 p-5 shadow-[0px_2px_6px_2px_rgba(0,0,0,0.5)] transition-all duration-300 ease-in-out hover:scale-105">
+                        <img class="h-20 w-20 rounded-full object-cover" src="./src/images/testimonials/avatar.png"
+                            alt="Testimonial 1" />
+                        <p class="grow text-[16px]">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                             Praesentium ut tempora repudiandae magnam doloribus perspiciatis soluta nemo exercitationem
                             consectetur corporis!</p>
-                        <p class="testimonials__card-name">Doe John</p>
+                        <p class="text-[18px] font-bold leading-6">Doe John</p>
                     </div>
-                    <div class="testimonials__card">
-                        <img src="./src/images/testimonials/avatar.png" alt="Testimonial 1" />
-                        <p class="testimonials__card-review">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    <div
+                        class="flex min-h-[400px] w-[calc((100%-60px)/4)] flex-col justify-between gap-5 rounded-[10px] bg-white/20 p-5 shadow-[0px_2px_6px_2px_rgba(0,0,0,0.5)] transition-all duration-300 ease-in-out hover:scale-105">
+                        <img class="h-20 w-20 rounded-full object-cover" src="./src/images/testimonials/avatar.png"
+                            alt="Testimonial 1" />
+                        <p class="grow text-[16px]">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                             Praesentium ut tempora repudiandae magnam doloribus perspiciatis soluta nemo exercitationem
                             consectetur corporis!</p>
-                        <p class="testimonials__card-name">Mark Larson</p>
+                        <p class="text-[18px] font-bold leading-6">Mark Larson</p>
                     </div>
 
                 </div>
+            </div>
         </section>
 
-        <section class="contacts">
-            <div class="container">
-                <div class="contacts__content">
-                    <div class="contacts__text">
-                        <p class="accent">Get in touch</p>
-                        <h2 class="title">Contact us</h2>
-                        <p class="contacts__description">
+        <section class="relative px-[50px] py-[100px]">
+            <div
+                class="absolute bottom-0 left-0 h-[3px] w-full bg-[linear-gradient(to_right,#2e2e2e_40%,#F66E21_100%)]">
+            </div>
+            <div class="mx-auto w-full max-w-[1600px] px-[15px]">
+                <div class="flex items-center justify-between gap-[50px]">
+                    <div class="flex max-w-[50%] flex-col gap-[30px] text-left">
+                        <p class="font-semibold uppercase text-[#d9611c]">Get in touch</p>
+                        <h2 class="text-[48px] font-semibold leading-[56px]">Contact us</h2>
+                        <p>
                             We’d love to hear from you. Please fill out the form below to get in touch with us.
                         </p>
                     </div>
-                    <div class="contacts__form">
-                        <h3 class="title">Send a message</h3>
-                        <form class="contacts__form-content" action="https://formspree.io/f/mvgooanz" method="POST">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" placeholder="Your name" required />
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Your email" required />
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" placeholder="Your message" rows="4"
+                    <div class="w-[30%]">
+                        <h3 class="mb-[30px] text-[48px] font-semibold leading-[56px]">Send a message</h3>
+                        <form class="flex w-full flex-col items-center justify-center gap-5"
+                            action="https://formspree.io/f/mvgooanz" method="POST">
+                            <label for="name" class="hidden">Name</label>
+                            <input
+                                class="w-full rounded-[15px] border border-white/30 bg-white/10 px-5 py-2.5 text-[16px] text-white outline-none"
+                                type="text" id="name" name="name" placeholder="Your name" required />
+                            <label for="email" class="hidden">Email</label>
+                            <input
+                                class="w-full rounded-[15px] border border-white/30 bg-white/10 px-5 py-2.5 text-[16px] text-white outline-none"
+                                type="email" id="email" name="email" placeholder="Your email" required />
+                            <label for="message" class="hidden">Message</label>
+                            <textarea
+                                class="w-full resize-none rounded-[15px] border border-white/30 bg-white/10 px-5 py-2.5 text-[16px] text-white outline-none"
+                                id="message" name="message" placeholder="Your message" rows="4"
                                 required></textarea>
-                            <button type="submit" class="btn btn--primary">Submit</button>
+                            <button type="submit"
+                                class="w-full rounded-[10px] border border-[#d9611c] bg-[#d9611c] px-5 py-2.5 text-[24px] font-semibold text-white transition-all duration-300 ease-in-out hover:bg-transparent hover:text-[#d9611c]">Submit</button>
                         </form>
                     </div>
                 </div>
             </div>
         </section>
 
-        <footer class="footer">
-            <div class="container">
-                <div class="footer__content">
-                    <div class="footer__logo">
-                        <a class="footer__logo-link">
+        <footer class="px-[50px] pb-[50px] pt-[100px]">
+            <div class="mx-auto w-full max-w-[1600px] px-[15px]">
+                <div class="mb-[50px] flex items-center justify-between gap-[50px]">
+                    <div>
+                        <a>
                             <img src="./src/images/Logo_white.png" alt="Logo" />
                         </a>
                     </div>
-                    <div class="footer__social">
-                        <ul class="footer__social-list">
-                            <li class="footer__social-item">
-                                <a href="" class="footer__social-link">
-                                    <svg width="32" height="32">
+                    <div>
+                        <ul class="flex gap-5">
+                            <li>
+                                <a href="">
+                                    <svg width="32" height="32"
+                                        class="fill-white transition-all duration-300 ease-in-out hover:fill-[#d9611c]">
                                         <use href="./src/images/icons/icons.svg#icon-inst"></use>
                                     </svg>
                                 </a>
                             </li>
-                            <li class="footer__social-item">
-                                <a href="" class="footer__social-link">
-                                    <svg width="32" height="32">
+                            <li>
+                                <a href="">
+                                    <svg width="32" height="32"
+                                        class="fill-white transition-all duration-300 ease-in-out hover:fill-[#d9611c]">
                                         <use href="./src/images/icons/icons.svg#icon-telegram"></use>
                                     </svg>
                                 </a>
                             </li>
-                            <li class="footer__social-item">
-                                <a href="" class="footer__social-link">
-                                    <svg width="32" height="32">
+                            <li>
+                                <a href="">
+                                    <svg width="32" height="32"
+                                        class="fill-white transition-all duration-300 ease-in-out hover:fill-[#d9611c]">
                                         <use href="./src/images/icons/icons.svg#icon-phone"></use>
                                     </svg>
                                 </a>
@@ -274,16 +332,15 @@
                     </div>
                 </div>
 
-                <div class="footer__copyright">
-                    <p class="footer__copyright-text">© 2024 Master Mechanics. All rights reserved.</p>
+                <div>
+                    <p class="text-center">© 2024 Master Mechanics. All rights reserved.</p>
                 </div>
             </div>
         </footer>
 
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script type="module" src="./src/js/swiper.js"></script>
+    <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>
