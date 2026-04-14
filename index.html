@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master Mechanics</title>
+    <title>Master Mechanics - Автосервіс | Одеса</title>
+    <meta name="description"
+        content="Master Mechanics, Одеса. Ремонт ДВЗ, ходової, діагностика, детейлінг та повний цикл авто з Америки. Залишайте заявку онлайн.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Master Mechanics">
+    <link rel="canonical" href="https://master-mechanics.vercel.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Master Mechanics | Одеса">
+    <meta property="og:description"
+        content="Ремонт ДВЗ, ходової, детейлінг, діагностика та повний цикл авто з Америки.">
+    <meta property="og:url" content="https://master-mechanics.vercel.app/">
+    <meta property="og:image" content="./src/images/Logo_white.png">
+    <meta property="og:locale" content="uk_UA">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="./src/images/icons/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,30 +24,29 @@
         href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400..900&family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 </head>
-
-<body>
+<body class="tw-page">
     <header class="header">
-        <div class="container">
+        <div class="container tw-container">
             <div class="header__navbar">
                 <nav class="header__nav">
                     <ul class="header__menu">
-                        <li class="header__menu-item"><a href="" class="header__link">About</a></li>
-                        <li class="header__menu-item"><a href="" class="header__link">Services</a></li>
-                        <li class="header__menu-item"><a href="" class="header__link">Gallery</a></li>
+                        <li class="header__menu-item"><a href="#about" class="header__link" data-i18n="menu.about">Про нас</a></li>
+                        <li class="header__menu-item"><a href="#services" class="header__link" data-i18n="menu.services">Послуги</a></li>
+                        <li class="header__menu-item"><a href="#works" class="header__link" data-i18n="menu.works">Кейси</a></li>
                     </ul>
                 </nav>
-
                 <div class="header__logo">
                     <a href="./index.html">
                         <img src="./src/images/Logo_white.png" alt="Master Mechanics Logo">
                     </a>
                 </div>
-
                 <nav class="header__nav">
                     <ul class="header__menu">
-                        <li class="header__menu-item"><a href="" class="header__link">Works</a></li>
-                        <li class="header__menu-item"><a href="" class="header__link">Contacts</a></li>
-                        <li class="header__menu-item"><a href="" class="header__link">Booking</a></li>
+                        <li class="header__menu-item"><a href="#contacts" class="header__link" data-i18n="menu.contacts">Контакти</a></li>
+                        <li class="header__menu-item"><a href="#booking" class="header__link" data-i18n="menu.booking">Заявка</a></li>
+                        <li class="header__menu-item">
+                            <button type="button" class="lang-switch" data-lang-toggle>UA / EN</button>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -43,175 +54,164 @@
     </header>
 
     <main class="main">
-        <section class="hero">
+        <section class="hero" id="home">
             <div class="hero__content">
                 <div class="hero__text">
-                    <p class="accent">It your favorite service</p>
-                    <h1 class="hero__title">If your car <span class="hero__highlight">hurts</span> bring it to us</h1>
-                    <p class="hero__description">
-                        Professional auto service you can trust. From routine maintenance to complex
-                        repairs, we’ll get your car back on the road quickly and safely.
-                        Your vehicle is in good hands with our experienced technicians.
+                    <p class="accent tw-accent" data-i18n="hero.accent">Надійний автосервіс в Одесі</p>
+                    <h1 class="hero__title tw-hero-title" data-i18n="hero.title">Повний цикл ремонту та відновлення авто</h1>
+                    <p class="hero__description" data-i18n="hero.description">
+                        Master Mechanics - сервіс, де технічний досвід поєднується з сучасною автоматизацією заявок.
+                        Працюємо швидко, прозоро та під індивідуальний запит.
                     </p>
                 </div>
                 <div class="hero__button">
-                    <button class="btn btn--primary">Get Services</button>
-                    <button class="btn btn--secondary">Contact us</button>
+                    <a class="btn btn--primary tw-btn" href="#services" data-i18n="hero.servicesCta">Дивитись послуги</a>
+                    <a class="btn btn--secondary tw-btn" href="#booking" data-i18n="hero.contactCta">Залишити заявку</a>
                 </div>
             </div>
         </section>
-        <section class="about">
-            <div class="container">
+
+        <section class="about" id="about">
+            <div class="container tw-container">
                 <div class="about__content">
                     <div class="about__text">
-                        <p class="accent">About Us</p>
-                        <h2 class="title">Our reputation speaks for itself</h2>
-                        <p class="about__description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <p class="accent tw-accent" data-i18n="about.accent">Про нас</p>
+                        <h2 class="title tw-title" data-i18n="about.title">Master Mechanics - команда практиків</h2>
+                        <p class="about__description" data-i18n="about.description">
+                            Спеціалізуємося на складних технічних роботах, кузовному відновленні, детейлінгу та проектах авто з США.
+                            Для зручності клієнтів впроваджуємо AI-автоматизацію обробки звернень та заявок.
                         </p>
-                        <a class="about__btn">Learn More</a>
+                        <a class="about__btn" href="#contacts" data-i18n="about.button">Зв'язатися</a>
                     </div>
-                    <div class="about__gallery">
+                    <div class="about__gallery" id="gallery">
                         <img class="about__gallery-img item1" src="./src/images/pictures/IMG_89D5F8332748-1.jpeg"
-                            alt="Gallery Image 1">
+                            alt="Процес ремонту авто">
                         <img class="about__gallery-img item2" src="./src/images/pictures/IMG_5078.jpg"
-                            alt="Gallery Image 2">
+                            alt="Діагностика авто в сервісі">
                         <img class="about__gallery-img item3" src="./src/images/pictures/IMG_7141.jpg"
-                            alt="Gallery Image 3">
+                            alt="Робоча зона Master Mechanics">
                         <img class="about__gallery-img item4" src="./src/images/pictures/IMG_0220.jpg"
-                            alt="Gallery Image 4">
+                            alt="Результат робіт у Master Mechanics">
                     </div>
                 </div>
             </div>
         </section>
-        <section class="services">
-            <div class="container">
+
+        <section class="services" id="services">
+            <div class="container tw-container">
                 <div class="services__content">
                     <div class="services__text">
-                        <p class="accent">What we offer</p>
-                        <h2 class="title">Our services</h2>
+                        <p class="accent tw-accent" data-i18n="services.accent">Що робимо</p>
+                        <h2 class="title tw-title" data-i18n="services.title">Наші послуги</h2>
                     </div>
-
                     <div class="swiper-btns">
-                        <button type="button" class="swiper-btn custom-button-prev">
+                        <button type="button" class="swiper-btn custom-button-prev" aria-label="Previous slide">
                             <svg width="32" height="32">
                                 <use href="./src/images/icons/icons.svg#icon-arrow-left"></use>
                             </svg>
                         </button>
-                        <button type="button" class="swiper-btn custom-button-next">
+                        <button type="button" class="swiper-btn custom-button-next" aria-label="Next slide">
                             <svg width="32" height="32">
                                 <use href="./src/images/icons/icons.svg#icon-arrow-right"></use>
                             </svg>
                         </button>
                     </div>
-
                     <div class="swiper mySwiper">
                         <div class="swiper-wrapper mySwiper">
-                            <div class="swiper-slide">
-                                <img src="./src/images/pictures/coming_soon.jpg" alt="Service 1" />
-                                <p>Service 1</p>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="./src/images/pictures/coming_soon.jpg" alt="Service 2" />
-                                <p>Service 2</p>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="./src/images/pictures/coming_soon.jpg" alt="Service 3" />
-                                <p>Service 3</p>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="./src/images/pictures/coming_soon.jpg" alt="Service 4" />
-                                <p>Service 4</p>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="./src/images/pictures/coming_soon.jpg" alt="Service 5" />
-                                <p>Service 5</p>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="./src/images/pictures/coming_soon.jpg" alt="Service 6" />
-                                <p>Service 6</p>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="./src/images/pictures/coming_soon.jpg" alt="Service 7" />
-                                <p>Service 7</p>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="./src/images/pictures/coming_soon.jpg" alt="Service 8" />
-                                <p>Service 8</p>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="./src/images/pictures/coming_soon.jpg" alt="Service 9" />
-                                <p>Service 9</p>
-                            </div>
+                            <div class="swiper-slide"><img src="./src/images/pictures/coming_soon.jpg" alt="Ремонт ДВЗ"><p data-i18n="services.engine">Ремонт ДВЗ</p></div>
+                            <div class="swiper-slide"><img src="./src/images/pictures/coming_soon.jpg" alt="Ремонт ходової"><p data-i18n="services.suspension">Ремонт ходової</p></div>
+                            <div class="swiper-slide"><img src="./src/images/pictures/coming_soon.jpg" alt="Детейлінг"><p data-i18n="services.detailing">Детейлінг</p></div>
+                            <div class="swiper-slide"><img src="./src/images/pictures/coming_soon.jpg" alt="Авто з Америки"><p data-i18n="services.usa">Повний цикл авто з США</p></div>
+                            <div class="swiper-slide"><img src="./src/images/pictures/coming_soon.jpg" alt="Дефектовка"><p data-i18n="services.inspection">Дефектовка та розбір</p></div>
+                            <div class="swiper-slide"><img src="./src/images/pictures/coming_soon.jpg" alt="Кузовні роботи"><p data-i18n="services.body">Рихтовка та покраска</p></div>
+                            <div class="swiper-slide"><img src="./src/images/pictures/coming_soon.jpg" alt="Хімчистка"><p data-i18n="services.cleaning">Хімчистка салону</p></div>
+                            <div class="swiper-slide"><img src="./src/images/pictures/coming_soon.jpg" alt="Вихлопні системи"><p data-i18n="services.exhaust">Вихлопні системи</p></div>
+                            <div class="swiper-slide"><img src="./src/images/pictures/coming_soon.jpg" alt="Діагностика"><p data-i18n="services.diagnostic">Діагностика</p></div>
                         </div>
                     </div>
+                    <p class="services__note" data-i18n="services.note">Терміни та вартість погоджуються індивідуально після огляду авто.</p>
                 </div>
             </div>
         </section>
-        <section class="testimonials">
+
+        <section class="testimonials" id="works">
             <div class="testimonials__content">
                 <div class="testimonials__text">
-                    <p class="accent">Testimonials</p>
-                    <h2 class="title">What our clients say</h2>
-                    <p class="testimonials__description">
-                        Read what our satisfied customers have to say about our service.
+                    <p class="accent tw-accent" data-i18n="works.accent">Кейси</p>
+                    <h2 class="title tw-title" data-i18n="works.title">Найближчим часом додамо реальні кейси</h2>
+                    <p class="testimonials__description" data-i18n="works.description">
+                        Поки що це тимчасові заглушки. Скоро тут будуть фото "до/після", процес і результат робіт.
                     </p>
                 </div>
                 <div class="testimonials__cards">
                     <div class="testimonials__card">
-                        <img src="./src/images/testimonials/avatar.png" alt="Testimonial 1" />
-                        <p class="testimonials__card-review">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Optio sunt cumque earum suscipit, magnam vitae?</p>
-                        <p class="testimonials__card-name">John Doe</p>
+                        <img src="./src/images/testimonials/avatar.png" alt="Тимчасова заглушка кейсу 1" />
+                        <p class="testimonials__card-review" data-i18n="works.case1">Кейс #1 (тимчасово): відновлення кузова після ДТП, повна підготовка до фарбування.</p>
+                        <p class="testimonials__card-name" data-i18n="works.placeholder">Soon</p>
                     </div>
                     <div class="testimonials__card">
-                        <img src="./src/images/testimonials/avatar.png" alt="Testimonial 2" />
-                        <p class="testimonials__card-review">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                            Praesentium ut tempora repudiandae magnam doloribus perspiciatis soluta nemo exercitationem
-                            consectetur corporis!</p>
-                        <p class="testimonials__card-name">Alice Bart</p>
+                        <img src="./src/images/testimonials/avatar.png" alt="Тимчасова заглушка кейсу 2" />
+                        <p class="testimonials__card-review" data-i18n="works.case2">Кейс #2 (тимчасово): проект з авто з США - від дефектовки до фінальної збірки.</p>
+                        <p class="testimonials__card-name" data-i18n="works.placeholder">Soon</p>
                     </div>
                     <div class="testimonials__card">
-                        <img src="./src/images/testimonials/avatar.png" alt="Testimonial 3" />
-                        <p class="testimonials__card-review">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                            Praesentium ut tempora repudiandae magnam doloribus perspiciatis soluta nemo exercitationem
-                            consectetur corporis!</p>
-                        <p class="testimonials__card-name">Doe John</p>
+                        <img src="./src/images/testimonials/avatar.png" alt="Тимчасова заглушка кейсу 3" />
+                        <p class="testimonials__card-review" data-i18n="works.case3">Кейс #3 (тимчасово): комплексний детейлінг та хімчистка салону.</p>
+                        <p class="testimonials__card-name" data-i18n="works.placeholder">Soon</p>
                     </div>
                     <div class="testimonials__card">
-                        <img src="./src/images/testimonials/avatar.png" alt="Testimonial 4" />
-                        <p class="testimonials__card-review">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                            Praesentium ut tempora repudiandae magnam doloribus perspiciatis soluta nemo exercitationem
-                            consectetur corporis!</p>
-                        <p class="testimonials__card-name">Mark Larson</p>
+                        <img src="./src/images/testimonials/avatar.png" alt="Тимчасова заглушка кейсу 4" />
+                        <p class="testimonials__card-review" data-i18n="works.case4">Кейс #4 (тимчасово): діагностика та ремонт ходової з підбором запчастин.</p>
+                        <p class="testimonials__card-name" data-i18n="works.placeholder">Soon</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="contacts">
-            <div class="container">
+        <section class="contacts" id="contacts">
+            <div class="container tw-container">
                 <div class="contacts__content">
                     <div class="contacts__text">
-                        <p class="accent">Get in touch</p>
-                        <h2 class="title">Contact us</h2>
-                        <p class="contacts__description">
-                            We’d love to hear from you. Please fill out the form below to get in touch with us.
+                        <p class="accent tw-accent" data-i18n="contacts.accent">Зв'язок</p>
+                        <h2 class="title tw-title" data-i18n="contacts.title">Контакти Master Mechanics</h2>
+                        <p class="contacts__description" data-i18n="contacts.description">
+                            Працюємо в Одесі. Заявки з форми автоматично потрапляють у Telegram та Google Sheets через Make.
                         </p>
+                        <ul class="contacts__list">
+                            <li><a href="tel:+380930445453">+38 (093) 044-54-53</a></li>
+                            <li><a href="mailto:sto.mechanics2016@gmail.com">sto.mechanics2016@gmail.com</a></li>
+                            <li><a href="https://www.instagram.com/sto_master.mechanics" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                            <li><a href="https://t.me/+380930445453" target="_blank" rel="noopener noreferrer">Telegram</a></li>
+                        </ul>
                     </div>
-                    <div class="contacts__form">
-                        <h3 class="title">Send a message</h3>
-                        <form class="contacts__form-content" action="https://formspree.io/f/mvgooanz" method="POST">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" placeholder="Your name" required />
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Your email" required />
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" placeholder="Your message" rows="4"
-                                required></textarea>
-                            <button type="submit" class="btn btn--primary">Submit</button>
+                    <div class="contacts__form" id="booking">
+                        <h3 class="title tw-title" data-i18n="form.title">Залишити заявку</h3>
+                        <form class="contacts__form-content" id="lead-form" data-make-webhook="">
+                            <label for="name" class="visually-hidden" data-i18n="form.name">Ім'я</label>
+                            <input type="text" id="name" name="name" placeholder="Ваше ім'я" required />
+                            <label for="email" class="visually-hidden" data-i18n="form.email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Ваш email" required />
+                            <label for="phone" class="visually-hidden" data-i18n="form.phone">Телефон</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Ваш телефон" required />
+                            <label for="service" class="visually-hidden" data-i18n="form.service">Послуга</label>
+                            <select id="service" name="service" required>
+                                <option value="" data-i18n="form.serviceDefault">Оберіть послугу</option>
+                                <option value="engine" data-i18n="services.engine">Ремонт ДВЗ</option>
+                                <option value="suspension" data-i18n="services.suspension">Ремонт ходової</option>
+                                <option value="detailing" data-i18n="services.detailing">Детейлінг</option>
+                                <option value="usa" data-i18n="services.usa">Повний цикл авто з США</option>
+                                <option value="exhaust" data-i18n="services.exhaust">Вихлопні системи</option>
+                                <option value="diagnostic" data-i18n="services.diagnostic">Діагностика</option>
+                            </select>
+                            <label for="message" class="visually-hidden" data-i18n="form.message">Опис задачі</label>
+                            <textarea id="message" name="message" placeholder="Коротко опишіть задачу" rows="4" required></textarea>
+                            <input type="text" name="website" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+                            <label class="contacts__checkbox">
+                                <input type="checkbox" name="consent" required>
+                                <span data-i18n="form.consent">Погоджуюсь на обробку персональних даних</span>
+                            </label>
+                            <button type="submit" class="btn btn--primary tw-btn" data-i18n="form.submit">Відправити</button>
+                            <p class="form-status" id="form-status" aria-live="polite"></p>
                         </form>
                     </div>
                 </div>
@@ -219,41 +219,36 @@
         </section>
 
         <footer class="footer">
-            <div class="container">
+            <div class="container tw-container">
                 <div class="footer__content">
                     <div class="footer__logo">
-                        <a class="footer__logo-link">
-                            <img src="./src/images/Logo_white.png" alt="Logo" />
+                        <a class="footer__logo-link" href="#home">
+                            <img src="./src/images/Logo_white.png" alt="Master Mechanics Logo" />
                         </a>
                     </div>
                     <div class="footer__social">
                         <ul class="footer__social-list">
                             <li class="footer__social-item">
-                                <a href="" class="footer__social-link">
-                                    <svg width="32" height="32">
-                                        <use href="./src/images/icons/icons.svg#icon-inst"></use>
-                                    </svg>
+                                <a href="https://www.instagram.com/sto_master.mechanics" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                                    <svg width="32" height="32"><use href="./src/images/icons/icons.svg#icon-inst"></use></svg>
                                 </a>
                             </li>
                             <li class="footer__social-item">
-                                <a href="" class="footer__social-link">
-                                    <svg width="32" height="32">
-                                        <use href="./src/images/icons/icons.svg#icon-telegram"></use>
-                                    </svg>
+                                <a href="https://t.me/+380930445453" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                                    <svg width="32" height="32"><use href="./src/images/icons/icons.svg#icon-telegram"></use></svg>
                                 </a>
                             </li>
                             <li class="footer__social-item">
-                                <a href="" class="footer__social-link">
-                                    <svg width="32" height="32">
-                                        <use href="./src/images/icons/icons.svg#icon-phone"></use>
-                                    </svg>
+                                <a href="tel:+380930445453" class="footer__social-link" aria-label="Phone">
+                                    <svg width="32" height="32"><use href="./src/images/icons/icons.svg#icon-phone"></use></svg>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="footer__copyright">
-                    <p class="footer__copyright-text">© 2024 Master Mechanics. All rights reserved.</p>
+                    <p class="footer__copyright-text">© 2026 Master Mechanics. All rights reserved.</p>
+                    <a href="./privacy.html" class="footer__privacy" data-i18n="footer.privacy">Політика конфіденційності</a>
                 </div>
             </div>
         </footer>
@@ -261,5 +256,4 @@
 
     <script type="module" src="/src/main.js"></script>
 </body>
-
 </html>
