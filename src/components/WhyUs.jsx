@@ -1,13 +1,16 @@
-import { REASONS } from "../data/constants";
 import SectionTag from "./ui/SectionTag";
 import SectionTitle from "./ui/SectionTitle";
 import FadeBox from "./ui/FadeBox";
+import { useLanguage } from "../i18n/useLanguage";
 
 export default function WhyUs() {
+  const { t } = useLanguage();
+  const w = t.whyUs;
+
   return (
     <section id="why" style={{ padding: "6rem 5vw", background: "var(--black)" }}>
-      <SectionTag>Почему мы</SectionTag>
-      <SectionTitle>Нам доверяют</SectionTitle>
+      <SectionTag>{w.tag}</SectionTag>
+      <SectionTitle>{w.title}</SectionTitle>
       <div className="why-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", marginTop: "3rem", alignItems: "center" }}>
         <FadeBox>
           <div style={{ position: "relative", height: 420, border: "1px solid var(--border)", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -33,12 +36,12 @@ export default function WhyUs() {
               }}
             />
             <div style={{ position: "absolute", bottom: "1.5rem", right: "1.5rem", background: "var(--orange)", color: "#000", fontFamily: "'Bebas Neue', sans-serif", fontSize: "1.1rem", letterSpacing: "0.05em", padding: "0.75rem 1.25rem", clipPath: "polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))" }}>
-              С 2016 года
+              {w.since}
             </div>
           </div>
         </FadeBox>
         <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-          {REASONS.map((r) => (
+          {w.reasons.map((r) => (
             <FadeBox key={r.num}>
               <div style={{ display: "flex", gap: "1.25rem", alignItems: "flex-start", padding: "1.25rem", border: "1px solid var(--border)" }}>
                 <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "2rem", lineHeight: 1, color: "var(--orange)", minWidth: 48 }}>{r.num}</div>

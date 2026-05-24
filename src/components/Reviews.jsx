@@ -1,8 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
-import { REVIEWS } from "../data/constants";
 import SectionTag from "./ui/SectionTag";
 import SectionTitle from "./ui/SectionTitle";
 import ReviewCard from "./ReviewCard";
+import { useLanguage } from "../i18n/useLanguage";
 
 function usePerView() {
   const [perView, setPerView] = useState(3);
@@ -35,13 +35,13 @@ const navBtnStyle = {
 };
 
 export default function Reviews() {
+  const { t } = useLanguage();
+  const r = t.reviews;
+  const reviews = r.items;
   const perView = usePerView();
-  const maxIndex = Math.max(0, REVIEWS.length - perView);
+  const maxIndex = Math.max(0, reviews.length - perView);
   const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    setIndex((i) => Math.min(i, maxIndex));
-  }, [maxIndex]);
+  const safeIndex = Math.min(index, maxIndex);
 
   const go = useCallback(
     (dir) => setIndex((i) => Math.max(0, Math.min(maxIndex, i + dir))),
@@ -52,8 +52,8 @@ export default function Reviews() {
 
   return (
     <section id="reviews" style={{ padding: "6rem 5vw", background: "var(--black)" }}>
-      <SectionTag>Отзывы клиентов</SectionTag>
-      <SectionTitle>Что говорят о нас</SectionTitle>
+      <SectionTag>{r.tag}</SectionTag>
+      <SectionTitle>{r.title}</SectionTitle>
 
       <div style={{ marginTop: "3rem", position: "relative" }}>
         <div style={{ overflow: "hidden", border: "1px solid var(--border)", background: "var(--border)" }}>
@@ -61,12 +61,12 @@ export default function Reviews() {
             style={{
               display: "flex",
               transition: "transform 0.45s ease",
-              transform: `translateX(-${index * (100 / perView)}%)`,
+              transform: `translateX(-${safeIndex * (100 / perView)}%)`,
             }}
           >
-            {REVIEWS.map((r) => (
+            {reviews.map((review, i) => (
               <div
-                key={r.name}
+                key={i}
                 style={{
                   flex: `0 0 ${100 / perView}%`,
                   minWidth: 0,
@@ -74,7 +74,7 @@ export default function Reviews() {
                   paddingRight: 1,
                 }}
               >
-                <ReviewCard {...r} />
+                <ReviewCard {...review} />
               </div>
             ))}
           </div>
@@ -92,18 +92,18 @@ export default function Reviews() {
           <div style={{ display: "flex", gap: "0.5rem" }}>
             <button
               type="button"
-              aria-label="Предыдущие отзывы"
-              style={{ ...navBtnStyle, opacity: index === 0 ? 0.35 : 1 }}
-              disabled={index === 0}
+              aria-label={r.prev}
+              style={{ ...navBtnStyle, opacity: safeIndex === 0 ? 0.35 : 1 }}
+              disabled={safeIndex === 0}
               onClick={() => go(-1)}
             >
               ←
             </button>
             <button
               type="button"
-              aria-label="Следующие отзывы"
-              style={{ ...navBtnStyle, opacity: index >= maxIndex ? 0.35 : 1 }}
-              disabled={index >= maxIndex}
+              aria-label={r.next}
+              style={{ ...navBtnStyle, opacity: safeIndex >= maxIndex ? 0.35 : 1 }}
+              disabled={safeIndex >= maxIndex}
               onClick={() => go(1)}
             >
               →
@@ -115,15 +115,15 @@ export default function Reviews() {
               <button
                 key={i}
                 type="button"
-                aria-label={`Отзыв ${i + 1}`}
+                aria-label={`${r.slide} ${i + 1}`}
                 onClick={() => setIndex(i)}
                 style={{
-                  width: i === index ? 20 : 6,
+                  width: i === safeIndex ? 20 : 6,
                   height: 6,
                   padding: 0,
                   border: "none",
                   borderRadius: 0,
-                  background: i === index ? "var(--orange)" : "var(--border)",
+                  background: i === safeIndex ? "var(--orange)" : "var(--border)",
                   cursor: "pointer",
                   transition: "width 0.25s, background 0.25s",
                 }}

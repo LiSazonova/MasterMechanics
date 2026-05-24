@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { SERVICES } from "../data/constants";
 import SectionTag from "./ui/SectionTag";
 import SectionTitle from "./ui/SectionTitle";
 import FadeBox from "./ui/FadeBox";
+import { useLanguage } from "../i18n/useLanguage";
 
 function ServiceCard({ service, isHovered, onEnter, onLeave }) {
   return (
@@ -41,14 +41,16 @@ function ServiceCard({ service, isHovered, onEnter, onLeave }) {
 }
 
 export default function Services() {
+  const { t } = useLanguage();
+  const s = t.services;
   const [hovered, setHovered] = useState(null);
 
   return (
     <section id="services" style={{ padding: "6rem 5vw", background: "var(--dark)", position: "relative", overflow: "hidden" }}>
       <div style={{ position: "absolute", right: "-2%", top: "50%", transform: "translateY(-50%)", fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(6rem,14vw,14rem)", color: "rgba(240,90,0,.04)", pointerEvents: "none", whiteSpace: "nowrap" }}>SERVICES</div>
-      <SectionTag>Что мы делаем</SectionTag>
-      <SectionTitle>Наши услуги</SectionTitle>
-      <p style={{ fontSize: "1rem", color: "var(--gray)", maxWidth: 560, lineHeight: 1.7, marginBottom: "3rem" }}>Полный спектр работ — от замены масла до сложного восстановления авто из США.</p>
+      <SectionTag>{s.tag}</SectionTag>
+      <SectionTitle>{s.title}</SectionTitle>
+      <p style={{ fontSize: "1rem", color: "var(--gray)", maxWidth: 560, lineHeight: 1.7, marginBottom: "3rem" }}>{s.desc}</p>
 
       <div
         className="services-grid"
@@ -60,12 +62,12 @@ export default function Services() {
           border: "1px solid var(--border)",
         }}
       >
-        {SERVICES.map((s) => (
-          <FadeBox key={s.name}>
+        {s.items.map((item, i) => (
+          <FadeBox key={i}>
             <ServiceCard
-              service={s}
-              isHovered={hovered === s.name}
-              onEnter={() => setHovered(s.name)}
+              service={item}
+              isHovered={hovered === i}
+              onEnter={() => setHovered(i)}
               onLeave={() => setHovered(null)}
             />
           </FadeBox>

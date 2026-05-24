@@ -1,15 +1,18 @@
-import { PRICES } from "../data/constants";
 import SectionTag from "./ui/SectionTag";
 import SectionTitle from "./ui/SectionTitle";
 import FadeBox from "./ui/FadeBox";
 import PriceItem from "./PriceItem";
+import { useLanguage } from "../i18n/useLanguage";
 
 export default function Prices() {
+  const { t } = useLanguage();
+  const p = t.prices;
+
   return (
     <section id="prices" style={{ padding: "6rem 5vw", background: "var(--black)" }}>
-      <SectionTag>Примерные цены</SectionTag>
-      <SectionTitle>Прозрачная стоимость</SectionTitle>
-      <p style={{ fontSize: "1rem", color: "var(--gray)", maxWidth: 560, lineHeight: 1.7, marginBottom: "3rem" }}>Точная цена — после диагностики. Ниже — ориентировочные цифры.</p>
+      <SectionTag>{p.tag}</SectionTag>
+      <SectionTitle>{p.title}</SectionTitle>
+      <p style={{ fontSize: "1rem", color: "var(--gray)", maxWidth: 560, lineHeight: 1.7, marginBottom: "3rem" }}>{p.desc}</p>
       <FadeBox>
         <div
           className="prices-grid"
@@ -21,8 +24,8 @@ export default function Prices() {
             border: "1px solid var(--border)",
           }}
         >
-          {PRICES.map((p) => (
-            <PriceItem key={p.name} {...p} />
+          {p.items.map((item, i) => (
+            <PriceItem key={i} {...item} />
           ))}
         </div>
       </FadeBox>

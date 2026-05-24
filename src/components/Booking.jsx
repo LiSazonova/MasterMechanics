@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { BOOKING_SERVICE_OPTIONS } from "../data/constants";
 import { submitBooking } from "../api/submitBooking";
 import SectionTag from "./ui/SectionTag";
 import SectionTitle from "./ui/SectionTitle";
+import { useLanguage } from "../i18n/useLanguage";
 
 const fieldStyle = { background: "var(--panel)", padding: 0, position: "relative" };
 const labelStyle = { display: "block", fontFamily: "'Share Tech Mono', monospace", fontSize: "0.65rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--gray)", padding: "0.75rem 1rem 0" };
@@ -11,6 +11,8 @@ const inputStyle = { width: "100%", background: "transparent", border: "none", o
 const emptyForm = { name: "", contact: "", car: "", service: "", comment: "" };
 
 export default function Booking() {
+  const { t } = useLanguage();
+  const b = t.booking;
   const [form, setForm] = useState(emptyForm);
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -19,7 +21,7 @@ export default function Booking() {
 
   const handleSubmit = async () => {
     if (!form.name.trim() || !form.contact.trim()) {
-      alert("Заполните имя и телефон");
+      alert(b.fillRequired);
       return;
     }
     setSubmitting(true);
@@ -27,7 +29,7 @@ export default function Booking() {
       await submitBooking(form);
       setSent(true);
     } catch {
-      alert("Не удалось отправить заявку. Попробуйте позже или позвоните нам.");
+      alert(b.submitError);
     } finally {
       setSubmitting(false);
     }
@@ -35,49 +37,49 @@ export default function Booking() {
 
   return (
     <section id="booking" style={{ padding: "6rem 5vw", background: "var(--dark)" }}>
-      <SectionTag>Запись</SectionTag>
-      <SectionTitle>Записаться на ремонт</SectionTitle>
+      <SectionTag>{b.tag}</SectionTag>
+      <SectionTitle>{b.title}</SectionTitle>
       <p style={{ fontSize: "1rem", color: "var(--gray)", lineHeight: 1.7, marginBottom: "2.5rem", maxWidth: 520 }}>
-        Оставьте заявку — перезвоним и подтвердим время.
+        {b.desc}
       </p>
 
       <div style={{ maxWidth: 700 }}>
         {sent ? (
           <div style={{ border: "1px solid var(--border)", padding: "2.5rem 2rem", textAlign: "center" }}>
-            <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "2rem", color: "var(--orange)", marginBottom: "0.75rem" }}>Заявка принята</div>
-            <div style={{ color: "var(--gray)", fontSize: "0.95rem" }}>Перезвоним в течение 30 минут.</div>
+            <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "2rem", color: "var(--orange)", marginBottom: "0.75rem" }}>{b.successTitle}</div>
+            <div style={{ color: "var(--gray)", fontSize: "0.95rem" }}>{b.successDesc}</div>
             <button
               type="button"
               onClick={() => { setSent(false); setForm(emptyForm); }}
               style={{ marginTop: "1.25rem", background: "transparent", border: "1px solid var(--border)", color: "var(--gray)", fontFamily: "'Share Tech Mono', monospace", fontSize: "0.7rem", letterSpacing: "0.1em", textTransform: "uppercase", padding: "0.55rem 1rem", cursor: "pointer" }}
             >
-              Новая заявка
+              {b.newRequest}
             </button>
           </div>
         ) : (
           <div className="booking-form" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1, background: "var(--border)", border: "1px solid var(--border)" }}>
             <div style={fieldStyle}>
-              <label style={labelStyle}>Имя</label>
-              <input style={inputStyle} value={form.name} onChange={set("name")} placeholder="Александр" />
+              <label style={labelStyle}>{b.name}</label>
+              <input style={inputStyle} value={form.name} onChange={set("name")} placeholder={b.namePlaceholder} />
             </div>
             <div style={fieldStyle}>
-              <label style={labelStyle}>Телефон</label>
+              <label style={labelStyle}>{b.phone}</label>
               <input style={inputStyle} value={form.contact} onChange={set("contact")} placeholder="+38 099 000 00 00" />
             </div>
             <div style={fieldStyle}>
-              <label style={labelStyle}>Авто</label>
-              <input style={inputStyle} value={form.car} onChange={set("car")} placeholder="BMW X5..." />
+              <label style={labelStyle}>{b.car}</label>
+              <input style={inputStyle} value={form.car} onChange={set("car")} placeholder={b.carPlaceholder} />
             </div>
             <div style={fieldStyle}>
-              <label style={labelStyle}>Услуга</label>
+              <label style={labelStyle}>{b.service}</label>
               <select style={{ ...inputStyle, marginTop: "0.25rem" }} value={form.service} onChange={set("service")}>
-                <option value="">Выберите...</option>
-                {BOOKING_SERVICE_OPTIONS.map((o) => <option key={o}>{o}</option>)}
+                <option value="">{b.selectService}</option>
+                {b.serviceOptions.map((o) => <option key={o}>{o}</option>)}
               </select>
             </div>
             <div style={{ ...fieldStyle, gridColumn: "1 / -1" }}>
-              <label style={labelStyle}>Комментарий</label>
-              <textarea style={{ ...inputStyle, resize: "none", height: 72 }} value={form.comment} onChange={set("comment")} placeholder="Кратко опишите проблему" />
+              <label style={labelStyle}>{b.comment}</label>
+              <textarea style={{ ...inputStyle, resize: "none", height: 72 }} value={form.comment} onChange={set("comment")} placeholder={b.commentPlaceholder} />
             </div>
             <button
               type="button"
@@ -97,7 +99,7 @@ export default function Booking() {
                 clipPath: "polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px))",
               }}
             >
-              {submitting ? "Отправка…" : "Отправить заявку"}
+              {submitting ? b.submitting : b.submit}
             </button>
           </div>
         )}

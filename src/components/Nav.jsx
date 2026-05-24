@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
-import { NAV_LINKS } from "../data/constants";
+import { NAV_HREFS } from "../i18n/translations";
+import { useLanguage } from "../i18n/useLanguage";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const linkStyle = (isActive) => ({
   fontFamily: "'Share Tech Mono', monospace",
@@ -12,6 +14,7 @@ const linkStyle = (isActive) => ({
 });
 
 export default function Nav() {
+  const { t } = useLanguage();
   const [active, setActive] = useState("");
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -78,16 +81,17 @@ export default function Nav() {
         </a>
 
         <ul className="nav-links" style={{ display: "flex", gap: "2rem", listStyle: "none", margin: 0, padding: 0 }}>
-          {NAV_LINKS.map((l) => (
+          {NAV_HREFS.map((l) => (
             <li key={l.href}>
               <a href={l.href} style={linkStyle(active === l.href.slice(1))}>
-                {l.label}
+                {t.nav[l.key]}
               </a>
             </li>
           ))}
         </ul>
 
         <div className="nav-actions" style={{ display: "flex", alignItems: "center", gap: "0.75rem", flexShrink: 0 }}>
+          <LanguageSwitcher className="nav-lang" />
           <a
             href="#booking"
             className="nav-cta"
@@ -103,13 +107,13 @@ export default function Nav() {
               clipPath: "polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))",
             }}
           >
-            Записаться
+            {t.nav.book}
           </a>
 
           <button
             type="button"
             className="nav-burger"
-            aria-label={menuOpen ? "Закрыть меню" : "Открыть меню"}
+            aria-label={menuOpen ? t.nav.closeMenu : t.nav.openMenu}
             aria-expanded={menuOpen}
             aria-controls="mobile-nav"
             onClick={() => setMenuOpen((v) => !v)}
@@ -128,21 +132,22 @@ export default function Nav() {
         onClick={closeMenu}
       >
         <div className="mobile-nav__panel" onClick={(e) => e.stopPropagation()}>
+          <LanguageSwitcher className="mobile-nav__lang" />
           <ul className="mobile-nav__links">
-            {NAV_LINKS.map((l, i) => (
+            {NAV_HREFS.map((l, i) => (
               <li key={l.href} style={{ "--i": i }}>
                 <a
                   href={l.href}
                   className={active === l.href.slice(1) ? "mobile-nav__link--active" : ""}
                   onClick={closeMenu}
                 >
-                  {l.label}
+                  {t.nav[l.key]}
                 </a>
               </li>
             ))}
           </ul>
           <a href="#booking" className="mobile-nav__cta" onClick={closeMenu}>
-            Записаться
+            {t.nav.book}
           </a>
         </div>
       </div>
@@ -215,6 +220,13 @@ export default function Nav() {
         .mobile-nav--open .mobile-nav__panel {
           transform: translateX(0);
         }
+        .mobile-nav__lang {
+          margin-bottom: 1.5rem;
+          align-self: flex-start;
+        }
+        .nav-lang {
+          display: flex;
+        }
         .mobile-nav__links {
           list-style: none;
           margin: 0;
@@ -273,6 +285,7 @@ export default function Nav() {
         @media (max-width: 767px) {
           .nav-links { display: none !important; }
           .nav-burger { display: flex; }
+          .nav-lang { display: none !important; }
         }
         @media (max-width: 480px) {
           .site-nav { padding-left: 4vw !important; padding-right: 4vw !important; }

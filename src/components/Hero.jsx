@@ -1,12 +1,10 @@
 import SectionTag from "./ui/SectionTag";
-
-const STATS = [
-  ["9+", "Лет опыта"],
-  ["3 000+", "Авто отремонтировано"],
-  ["100%", "Гарантия на работы"],
-];
+import { useLanguage } from "../i18n/useLanguage";
 
 export default function Hero() {
+  const { t } = useLanguage();
+  const h = t.hero;
+
   return (
     <section
       id="hero"
@@ -42,7 +40,7 @@ export default function Hero() {
       />
 
       <div className="hero-content" style={{ position: "relative", zIndex: 2, maxWidth: 720, flex: "1 1 auto" }}>
-        <SectionTag>Автосервис полного цикла · Одесса</SectionTag>
+        <SectionTag>{h.tag}</SectionTag>
         <p
           style={{
             fontFamily: "'Share Tech Mono', monospace",
@@ -64,8 +62,8 @@ export default function Hero() {
             marginBottom: "1.5rem",
           }}
         >
-          Ваше авто —&nbsp;
-          <span style={{ color: "var(--orange)" }}>наша работа.</span>
+          {h.title}&nbsp;
+          <span style={{ color: "var(--orange)" }}>{h.titleAccent}</span>
         </h1>
         <p
           style={{
@@ -76,7 +74,7 @@ export default function Hero() {
             marginBottom: "2.5rem",
           }}
         >
-          Профессиональный ремонт и восстановление автомобилей любой сложности. Американские машины, сложные случаи, полный цикл — от диагностики до малярных работ. Честно. Быстро. С гарантией.
+          {h.desc}
         </p>
         <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
           <a
@@ -93,7 +91,7 @@ export default function Hero() {
               clipPath: "polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px))",
             }}
           >
-            Записаться онлайн →
+            {h.bookOnline}
           </a>
           <a
             href="https://t.me/your_bot"
@@ -111,7 +109,7 @@ export default function Hero() {
               textDecoration: "none",
             }}
           >
-            Написать в Telegram
+            {h.telegram}
           </a>
         </div>
       </div>
@@ -129,7 +127,7 @@ export default function Hero() {
           paddingBottom: "4vh",
         }}
       >
-        {STATS.map(([n, l]) => (
+        {h.stats.map(([n, l]) => (
           <div key={l} style={{ textAlign: "right", borderRight: "2px solid var(--orange)", paddingRight: "1rem" }}>
             <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "2.8rem", lineHeight: 1, color: "var(--orange)" }}>{n}</div>
             <div

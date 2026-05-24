@@ -1,22 +1,26 @@
 import SectionTag from "./ui/SectionTag";
 import SectionTitle from "./ui/SectionTitle";
 import FadeBox from "./ui/FadeBox";
-
-const CONTACT_ITEMS = [
-  { icon: "📍", label: "Адрес", val: "ул. Левитана, д. 117/1а, бокс 11\nОдесса" },
-  { icon: "📞", label: "Телефон", val: "+38 (093) 044-54-53", href: "tel:+380930445453" },
-  // { icon: "💬", label: "Telegram-бот", val: "@MasterMechanics_bot", href: "https://t.me/your_bot" },
-  { icon: "🕐", label: "Режим работы", val: "Пн–Сб: 10:00 – 20:00\nВс: по записи" },
-];
+import { PHONE, PHONE_HREF } from "../data/constants";
+import { useLanguage } from "../i18n/useLanguage";
 
 export default function Contacts() {
+  const { t } = useLanguage();
+  const c = t.contacts;
+
+  const contactItems = [
+    { icon: "📍", label: c.address, val: c.addressVal },
+    { icon: "📞", label: c.phone, val: PHONE, href: PHONE_HREF },
+    { icon: "🕐", label: c.hours, val: c.hoursVal },
+  ];
+
   return (
     <section id="contacts" style={{ padding: "6rem 5vw", background: "var(--dark)" }}>
-      <SectionTag>Найдите нас</SectionTag>
-      <SectionTitle>Контакты</SectionTitle>
+      <SectionTag>{c.tag}</SectionTag>
+      <SectionTitle>{c.title}</SectionTitle>
       <div className="contacts-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", marginTop: "3rem", alignItems: "stretch" }}>
         <FadeBox style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-          {CONTACT_ITEMS.map((item) => (
+          {contactItems.map((item) => (
             <div key={item.label} style={{ display: "flex", gap: "1rem", alignItems: "flex-start", padding: "1.25rem", border: "1px solid var(--border)" }}>
               <div style={{ fontSize: "1.4rem" }}>{item.icon}</div>
               <div>
@@ -33,7 +37,7 @@ export default function Contacts() {
           <div className="contacts-map" style={{ border: "1px solid var(--border)", background: "var(--panel)", minHeight: 320, height: "100%", position: "relative", overflow: "hidden" }}>
             <iframe
               className="contacts-map__frame"
-              title="Master Mechanics на карте"
+              title={c.mapTitle}
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2751.166953039946!2d30.691626376870072!3d46.40574527110505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c6331c50cfa33f%3A0x81d2c7eb8111dbc0!2z0KHQotCeIE1hc3RlciBNZWNoYW5pY3M!5e0!3m2!1sru!2sua!4v1779373333510!5m2!1sru!2sua"
               allowFullScreen
               loading="lazy"
