@@ -73,6 +73,11 @@ export default function Services() {
       </div>
 
       <style>{`
+        @media (max-width: 480px) {
+          .services-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
         @media (min-width: 640px) {
           .services-grid {
             grid-template-columns: repeat(3, 1fr) !important;

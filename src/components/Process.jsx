@@ -9,8 +9,8 @@ export default function Process() {
     <section id="process" style={{ padding: "6rem 5vw", background: "var(--dark)" }}>
       <SectionTag>Как это работает</SectionTag>
       <SectionTitle>Простой процесс</SectionTitle>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 0, marginTop: "3rem", position: "relative" }}>
-        <div style={{ position: "absolute", top: 32, left: "12.5%", right: "12.5%", height: 1, background: "linear-gradient(90deg,var(--orange),rgba(240,90,0,.2))" }} />
+      <div className="process-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 0, marginTop: "3rem", position: "relative" }}>
+        <div className="process-line" style={{ position: "absolute", top: 32, left: "12.5%", right: "12.5%", height: 1, background: "linear-gradient(90deg,var(--orange),rgba(240,90,0,.2))" }} />
         {STEPS.map((s, i) => (
           <div key={s.num} onMouseEnter={() => setHovered(i)} onMouseLeave={() => setHovered(null)} style={{ padding: "2rem 1.5rem", textAlign: "center" }}>
             <div style={{ width: 64, height: 64, borderRadius: "50%", border: `1px solid ${hovered === i ? "var(--orange)" : "var(--border)"}`, background: hovered === i ? "rgba(240,90,0,.1)" : "var(--panel)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 1.5rem", position: "relative", zIndex: 1, transition: "border-color 0.2s,background 0.2s" }}>
@@ -21,6 +21,21 @@ export default function Process() {
           </div>
         ))}
       </div>
+      <style>{`
+        @media (max-width: 900px) {
+          .process-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+          .process-line {
+            display: none;
+          }
+        }
+        @media (max-width: 520px) {
+          .process-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

@@ -168,7 +168,18 @@ export default function Hero() {
             border-left: 2px solid var(--orange) !important;
             padding-right: 0 !important;
             padding-left: 1rem !important;
-            flex: 1 1 140px !important;
+            flex: 1 1 calc(50% - 0.75rem) !important;
+            min-width: 0 !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .hero-section {
+            padding-top: 5.5rem !important;
+            padding-left: 4vw !important;
+            padding-right: 4vw !important;
+          }
+          .hero-stats > div {
+            flex: 1 1 100% !important;
           }
         }
       `}</style>

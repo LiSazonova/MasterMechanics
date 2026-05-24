@@ -8,7 +8,7 @@ export default function WhyUs() {
     <section id="why" style={{ padding: "6rem 5vw", background: "var(--black)" }}>
       <SectionTag>Почему мы</SectionTag>
       <SectionTitle>Нам доверяют</SectionTitle>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", marginTop: "3rem", alignItems: "center" }}>
+      <div className="why-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", marginTop: "3rem", alignItems: "center" }}>
         <FadeBox>
           <div style={{ position: "relative", height: 420, border: "1px solid var(--border)", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
             <div style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at 30% 40%,rgba(240,90,0,.18) 0%,transparent 50%),radial-gradient(circle at 70% 70%,rgba(240,90,0,.1) 0%,transparent 40%)" }} />
@@ -51,6 +51,17 @@ export default function WhyUs() {
           ))}
         </div>
       </div>
+      <style>{`
+        @media (max-width: 900px) {
+          .why-grid {
+            grid-template-columns: 1fr !important;
+            gap: 2.5rem !important;
+          }
+          .why-grid > div:first-child > div {
+            height: 280px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

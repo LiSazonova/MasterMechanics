@@ -55,7 +55,7 @@ export default function Booking() {
             </button>
           </div>
         ) : (
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1, background: "var(--border)", border: "1px solid var(--border)" }}>
+          <div className="booking-form" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1, background: "var(--border)", border: "1px solid var(--border)" }}>
             <div style={fieldStyle}>
               <label style={labelStyle}>Имя</label>
               <input style={inputStyle} value={form.name} onChange={set("name")} placeholder="Александр" />
@@ -102,6 +102,13 @@ export default function Booking() {
           </div>
         )}
       </div>
+      <style>{`
+        @media (max-width: 600px) {
+          .booking-form {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

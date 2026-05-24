@@ -61,6 +61,10 @@ export default function Contacts() {
         @media (max-width: 900px) {
           .contacts-grid {
             grid-template-columns: 1fr !important;
+            gap: 2rem !important;
+          }
+          .contacts-map {
+            min-height: 280px !important;
           }
         }
       `}</style>

@@ -27,6 +27,11 @@ export default function Prices() {
         </div>
       </FadeBox>
       <style>{`
+        @media (max-width: 480px) {
+          .prices-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
         @media (min-width: 640px) {
           .prices-grid {
             grid-template-columns: repeat(3, 1fr) !important;
