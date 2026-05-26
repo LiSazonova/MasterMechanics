@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { submitBooking } from "../api/submitBooking";
 import SectionTag from "./ui/SectionTag";
 import SectionTitle from "./ui/SectionTitle";
 import { useLanguage } from "../i18n/useLanguage";
@@ -26,7 +25,19 @@ export default function Booking() {
     }
     setSubmitting(true);
     try {
-      await submitBooking(form);
+      const res = await fetch(
+        "https://n8n-production-ca119.up.railway.app/webhook-test/9c1978c4-0b20-43bf-940e-56ae118c01c4",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: form.name.trim(),
+            phone: form.contact.trim(),
+            service: form.service,
+          }),
+        }
+      );
+      if (!res.ok) throw new Error("submit failed");
       setSent(true);
     } catch {
       alert(b.submitError);

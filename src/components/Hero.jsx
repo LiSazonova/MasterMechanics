@@ -94,7 +94,7 @@ export default function Hero() {
             {h.bookOnline}
           </a>
           <a
-            href="https://t.me/your_bot"
+            href="https://t.me/Master_Mechanics_Assistant_bot"
             target="_blank"
             rel="noreferrer"
             style={{
