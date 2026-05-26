@@ -6,23 +6,56 @@ import { useLanguage } from "../i18n/useLanguage";
 const fieldStyle = { background: "var(--panel)", padding: 0, position: "relative" };
 const labelStyle = { display: "block", fontFamily: "'Share Tech Mono', monospace", fontSize: "0.65rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--gray)", padding: "0.75rem 1rem 0" };
 const inputStyle = { width: "100%", background: "transparent", border: "none", outline: "none", color: "var(--white)", fontFamily: "'Barlow', sans-serif", fontSize: "0.95rem", padding: "0.25rem 1rem 0.75rem" };
+const errorStyle = { fontFamily: "'Share Tech Mono', monospace", fontSize: "0.6rem", letterSpacing: "0.05em", color: "var(--orange)", padding: "0 1rem 0.6rem" };
 
 const emptyForm = { name: "", contact: "", car: "", service: "", comment: "" };
+
+function isValidPhone(value) {
+  const digits = value.replace(/\D/g, "");
+  return digits.length >= 10 && digits.length <= 12;
+}
+
+function validateForm(form, e) {
+  const errors = {};
+  const name = form.name.trim();
+
+  if (!name) errors.name = e.nameRequired;
+  else if (name.length < 2) errors.name = e.nameMin;
+
+  const contact = form.contact.trim();
+  if (!contact) errors.contact = e.phoneRequired;
+  else if (!isValidPhone(contact)) errors.contact = e.phoneInvalid;
+
+  if (!form.car.trim()) errors.car = e.carRequired;
+  if (!form.service) errors.service = e.serviceRequired;
+
+  return errors;
+}
 
 export default function Booking() {
   const { t } = useLanguage();
   const b = t.booking;
   const [form, setForm] = useState(emptyForm);
+  const [errors, setErrors] = useState({});
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
-  const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
+  const set = (k) => (ev) => {
+    setForm((f) => ({ ...f, [k]: ev.target.value }));
+    if (errors[k]) setErrors((prev) => ({ ...prev, [k]: undefined }));
+  };
+
+  const fieldWrap = (key, extra = {}) => ({
+    ...fieldStyle,
+    ...extra,
+    ...(errors[key] ? { boxShadow: "inset 0 0 0 1px var(--orange)" } : {}),
+  });
 
   const handleSubmit = async () => {
-    if (!form.name.trim() || !form.contact.trim()) {
-      alert(b.fillRequired);
-      return;
-    }
+    const nextErrors = validateForm(form, b.errors);
+    setErrors(nextErrors);
+    if (Object.keys(nextErrors).length) return;
+
     setSubmitting(true);
     try {
       const res = await fetch(
@@ -35,11 +68,13 @@ export default function Booking() {
             phone: form.contact.trim(),
             car: form.car.trim(),
             service: form.service,
+            comment: form.comment.trim(),
           }),
         }
       );
       if (!res.ok) throw new Error("submit failed");
       setSent(true);
+      setErrors({});
     } catch {
       alert(b.submitError);
     } finally {
@@ -62,7 +97,7 @@ export default function Booking() {
             <div style={{ color: "var(--gray)", fontSize: "0.95rem" }}>{b.successDesc}</div>
             <button
               type="button"
-              onClick={() => { setSent(false); setForm(emptyForm); }}
+              onClick={() => { setSent(false); setForm(emptyForm); setErrors({}); }}
               style={{ marginTop: "1.25rem", background: "transparent", border: "1px solid var(--border)", color: "var(--gray)", fontFamily: "'Share Tech Mono', monospace", fontSize: "0.7rem", letterSpacing: "0.1em", textTransform: "uppercase", padding: "0.55rem 1rem", cursor: "pointer" }}
             >
               {b.newRequest}
@@ -70,28 +105,32 @@ export default function Booking() {
           </div>
         ) : (
           <div className="booking-form" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1, background: "var(--border)", border: "1px solid var(--border)" }}>
-            <div style={fieldStyle}>
+            <div style={fieldWrap("name")}>
               <label style={labelStyle}>{b.name}</label>
-              <input style={inputStyle} value={form.name} onChange={set("name")} placeholder={b.namePlaceholder} />
+              <input style={inputStyle} value={form.name} onChange={set("name")} placeholder={b.namePlaceholder} maxLength={80} />
+              {errors.name && <div style={errorStyle}>{errors.name}</div>}
             </div>
-            <div style={fieldStyle}>
+            <div style={fieldWrap("contact")}>
               <label style={labelStyle}>{b.phone}</label>
-              <input style={inputStyle} value={form.contact} onChange={set("contact")} placeholder="+38 099 000 00 00" />
+              <input type="tel" inputMode="tel" style={inputStyle} value={form.contact} onChange={set("contact")} placeholder="+38 099 000 00 00" maxLength={20} />
+              {errors.contact && <div style={errorStyle}>{errors.contact}</div>}
             </div>
-            <div style={{ ...fieldStyle, gridColumn: "1 / -1" }}>
+            <div style={fieldWrap("car", { gridColumn: "1 / -1" })}>
               <label style={labelStyle}>{b.car}</label>
-              <input style={inputStyle} value={form.car} onChange={set("car")} placeholder={b.carPlaceholder} />
+              <input style={inputStyle} value={form.car} onChange={set("car")} placeholder={b.carPlaceholder} maxLength={120} />
+              {errors.car && <div style={errorStyle}>{errors.car}</div>}
             </div>
-            <div style={fieldStyle}>
+            <div style={fieldWrap("service", { gridColumn: "1 / -1" })}>
               <label style={labelStyle}>{b.service}</label>
               <select style={{ ...inputStyle, marginTop: "0.25rem" }} value={form.service} onChange={set("service")}>
                 <option value="">{b.selectService}</option>
                 {b.serviceOptions.map((o) => <option key={o}>{o}</option>)}
               </select>
+              {errors.service && <div style={errorStyle}>{errors.service}</div>}
             </div>
             <div style={{ ...fieldStyle, gridColumn: "1 / -1" }}>
               <label style={labelStyle}>{b.comment}</label>
-              <textarea style={{ ...inputStyle, resize: "none", height: 72 }} value={form.comment} onChange={set("comment")} placeholder={b.commentPlaceholder} />
+              <textarea style={{ ...inputStyle, resize: "none", height: 72 }} value={form.comment} onChange={set("comment")} placeholder={b.commentPlaceholder} maxLength={500} />
             </div>
             <button
               type="button"

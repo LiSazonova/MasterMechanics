@@ -112,6 +112,14 @@ export const en = {
     newRequest: "New request",
     fillRequired: "Please fill in name and phone",
     submitError: "Could not submit request. Try again later or call us.",
+    errors: {
+      nameRequired: "Please enter your name",
+      nameMin: "Name is too short (minimum 2 characters)",
+      phoneRequired: "Please enter your phone number",
+      phoneInvalid: "Invalid number (e.g. +38 099 000 00 00)",
+      carRequired: "Please enter make and model",
+      serviceRequired: "Please select a service",
+    },
     serviceOptions: [
       "Diagnostics",
       "Maintenance / Oil change",
