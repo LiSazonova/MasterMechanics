@@ -26,13 +26,14 @@ export default function Booking() {
     setSubmitting(true);
     try {
       const res = await fetch(
-        "https://n8n-production-ca119.up.railway.app/webhook-test/9c1978c4-0b20-43bf-940e-56ae118c01c4",
+        "https://n8n-production-ca119.up.railway.app/webhook/9c1978c4-0b20-43bf-940e-56ae118c01c4",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             name: form.name.trim(),
             phone: form.contact.trim(),
+            car: form.car.trim(),
             service: form.service,
           }),
         }
@@ -77,7 +78,7 @@ export default function Booking() {
               <label style={labelStyle}>{b.phone}</label>
               <input style={inputStyle} value={form.contact} onChange={set("contact")} placeholder="+38 099 000 00 00" />
             </div>
-            <div style={fieldStyle}>
+            <div style={{ ...fieldStyle, gridColumn: "1 / -1" }}>
               <label style={labelStyle}>{b.car}</label>
               <input style={inputStyle} value={form.car} onChange={set("car")} placeholder={b.carPlaceholder} />
             </div>
