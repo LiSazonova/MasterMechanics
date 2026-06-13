@@ -3,9 +3,10 @@ import SectionTitle from "./ui/SectionTitle";
 import FadeBox from "./ui/FadeBox";
 import { PHONE, PHONE_HREF } from "../data/constants";
 import { useLanguage } from "../i18n/useLanguage";
+import { getMapEmbedUrl } from "../constants/maps";
 
 export default function Contacts() {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
   const c = t.contacts;
 
   const contactItems = [
@@ -22,11 +23,11 @@ export default function Contacts() {
         <FadeBox style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
           {contactItems.map((item) => (
             <div key={item.label} style={{ display: "flex", gap: "1rem", alignItems: "flex-start", padding: "1.25rem", border: "1px solid var(--border)" }}>
-              <div style={{ fontSize: "1.4rem" }}>{item.icon}</div>
+              <div style={{ fontSize: "1.4rem" }} aria-hidden="true">{item.icon}</div>
               <div>
                 <div style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: "0.65rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--orange)", marginBottom: "0.25rem" }}>{item.label}</div>
                 {item.href
-                  ? <a href={item.href} style={{ fontSize: "0.95rem", color: "var(--white)", textDecoration: "none" }}>{item.val}</a>
+                  ? <a href={item.href} className="focus-ring" style={{ fontSize: "0.95rem", color: "var(--white)", textDecoration: "none" }}>{item.val}</a>
                   : <div style={{ fontSize: "0.95rem", color: "var(--white)", whiteSpace: "pre-line" }}>{item.val}</div>
                 }
               </div>
@@ -36,14 +37,15 @@ export default function Contacts() {
         <FadeBox>
           <div className="contacts-map" style={{ border: "1px solid var(--border)", background: "var(--panel)", minHeight: 320, height: "100%", position: "relative", overflow: "hidden" }}>
             <iframe
+              key={lang}
               className="contacts-map__frame"
               title={c.mapTitle}
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2751.166953039946!2d30.691626376870072!3d46.40574527110505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c6331c50cfa33f%3A0x81d2c7eb8111dbc0!2z0KHQotCeIE1hc3RlciBNZWNoYW5pY3M!5e0!3m2!1sru!2sua!4v1779373333510!5m2!1sru!2sua"
+              src={getMapEmbedUrl(lang)}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
-            <div className="contacts-map__shade" aria-hidden />
+            <div className="contacts-map__shade" aria-hidden="true" />
           </div>
         </FadeBox>
       </div>

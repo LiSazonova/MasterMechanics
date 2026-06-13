@@ -72,10 +72,13 @@ export default function Nav() {
           transition: "background 0.3s",
         }}
       >
-        <a href="#hero" style={{ textDecoration: "none", display: "flex", alignItems: "center", flexShrink: 0 }}>
+        <a href="#hero" className="focus-ring" style={{ textDecoration: "none", display: "flex", alignItems: "center", flexShrink: 0 }} aria-label={t.a11y.logo}>
           <img
             src="/logo.png"
-            alt="Master Mechanics"
+            alt=""
+            width={220}
+            height={48}
+            decoding="async"
             style={{ height: 48, width: "auto", maxWidth: "min(220px, 42vw)", objectFit: "contain" }}
           />
         </a>
@@ -83,7 +86,7 @@ export default function Nav() {
         <ul className="nav-links" style={{ display: "flex", gap: "2rem", listStyle: "none", margin: 0, padding: 0 }}>
           {NAV_HREFS.map((l) => (
             <li key={l.href}>
-              <a href={l.href} style={linkStyle(active === l.href.slice(1))}>
+              <a href={l.href} className="focus-ring" style={linkStyle(active === l.href.slice(1))}>
                 {t.nav[l.key]}
               </a>
             </li>
@@ -94,7 +97,7 @@ export default function Nav() {
           <LanguageSwitcher className="nav-lang" />
           <a
             href="#booking"
-            className="nav-cta"
+            className="nav-cta focus-ring"
             style={{
               background: "var(--orange)",
               color: "#000",

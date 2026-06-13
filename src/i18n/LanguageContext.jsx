@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { translations, DEFAULT_LANG } from "./translations";
 import { LanguageContext } from "./context";
+import { updateDocumentMeta } from "./updateDocumentMeta";
 
 const STORAGE_KEY = "mm-lang";
 
@@ -29,10 +30,7 @@ export function LanguageProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    document.documentElement.lang = lang;
-    document.title = t.meta.title;
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", t.meta.description);
+    updateDocumentMeta(lang, t.meta);
   }, [lang, t]);
 
   return (

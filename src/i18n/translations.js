@@ -10,10 +10,11 @@ export const LANGUAGES = [
 
 export const translations = { uk, ru, en };
 
-export const DEFAULT_LANG = "uk";
+export const DEFAULT_LANG = "en";
 
 export const NAV_HREFS = [
   { href: "#services", key: "services" },
+  { href: "#why", key: "why" },
   { href: "#prices", key: "prices" },
   { href: "#process", key: "process" },
   { href: "#reviews", key: "reviews" },

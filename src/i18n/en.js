@@ -1,11 +1,18 @@
 export const en = {
   meta: {
-    title: "Master Mechanics — Auto Service in Odesa",
+    title: "Master Mechanics | Auto Repair & Maintenance",
     description:
-      "Master Mechanics — full-cycle auto service in Odesa. Diagnostics, repair, maintenance, bodywork and paint.",
+      "Professional auto repair, diagnostics and maintenance services. Fast booking, experienced mechanics and transparent pricing.",
+  },
+  a11y: {
+    language: "Language",
+    logo: "Master Mechanics — home",
+    logoDecorative: "Master Mechanics",
+    servicesWatermark: "Services",
   },
   nav: {
     services: "Services",
+    why: "Why us",
     prices: "Prices",
     process: "How we work",
     reviews: "Reviews",
@@ -19,6 +26,7 @@ export const en = {
     title: "Your car —",
     titleAccent: "our job.",
     desc: "Professional repair and restoration of vehicles of any complexity. American cars, tough cases, full cycle — from diagnostics to paint work. Honest. Fast. With warranty.",
+    brandLine: "· Master Mechanics ·",
     bookOnline: "Book online →",
     telegram: "Message on Telegram",
     stats: [
@@ -102,7 +110,9 @@ export const en = {
     service: "Service",
     comment: "Comment",
     namePlaceholder: "Alexander",
+    phonePlaceholder: "+38 099 000 00 00",
     carPlaceholder: "BMW X5, 2019",
+    formAriaLabel: "Book a repair form",
     commentPlaceholder: "Briefly describe the issue",
     selectService: "Select...",
     submit: "Submit request",
@@ -110,7 +120,6 @@ export const en = {
     successTitle: "Request received",
     successDesc: "We'll call back within 30 minutes.",
     newRequest: "New request",
-    fillRequired: "Please fill in name and phone",
     submitError: "Could not submit request. Try again later or call us.",
     errors: {
       nameRequired: "Please enter your name",
@@ -165,6 +174,7 @@ export const en = {
     mapTitle: "Master Mechanics on map",
   },
   footer: {
-    rights: "© 2025 Master Mechanics. All rights reserved.",
+    brand: "Master Mechanics",
+    rights: "All rights reserved.",
   },
 };

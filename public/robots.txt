@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://master-mechanics-yxq6.vercel.app/sitemap.xml

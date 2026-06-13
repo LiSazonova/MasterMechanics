@@ -6,6 +6,7 @@ import { useLanguage } from "../i18n/useLanguage";
 export default function WhyUs() {
   const { t } = useLanguage();
   const w = t.whyUs;
+  const a11y = t.a11y;
 
   return (
     <section id="why" style={{ padding: "6rem 5vw", background: "var(--black)" }}>
@@ -17,7 +18,7 @@ export default function WhyUs() {
             <div style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at 30% 40%,rgba(240,90,0,.18) 0%,transparent 50%),radial-gradient(circle at 70% 70%,rgba(240,90,0,.1) 0%,transparent 40%)" }} />
             <div
               role="img"
-              aria-label="Master Mechanics"
+              aria-label={a11y.logoDecorative}
               style={{
                 position: "relative",
                 zIndex: 1,

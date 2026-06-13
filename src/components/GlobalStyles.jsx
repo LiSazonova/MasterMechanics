@@ -1,7 +1,6 @@
 export default function GlobalStyles() {
   return (
     <style>{`
-      @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Share+Tech+Mono&display=swap');
       *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
       :root{
         --black:#0a0a0a;--dark:#111111;--panel:#161616;--border:#222222;
@@ -16,6 +15,12 @@ export default function GlobalStyles() {
         section { padding-left: 4vw !important; padding-right: 4vw !important; }
       }
       select option{background:var(--dark)}
+      a:focus-visible,button:focus-visible,.focus-ring:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+      .focus-ring-inset:focus-visible{outline:2px solid var(--orange);outline-offset:-2px}
+      @media (prefers-reduced-motion:reduce){
+        html{scroll-behavior:auto}
+        *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
+      }
     `}</style>
   );
 }

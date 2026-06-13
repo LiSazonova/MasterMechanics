@@ -2,10 +2,10 @@ import { LANGUAGES } from "../i18n/translations";
 import { useLanguage } from "../i18n/useLanguage";
 
 export default function LanguageSwitcher({ className = "" }) {
-  const { lang, setLang } = useLanguage();
+  const { lang, setLang, t } = useLanguage();
 
   return (
-    <div className={`lang-switcher ${className}`} role="group" aria-label="Language">
+    <div className={`lang-switcher ${className}`} role="group" aria-label={t.a11y.language}>
       {LANGUAGES.map(({ code, label }) => (
         <button
           key={code}

@@ -51,7 +51,7 @@ export default function Hero() {
             marginBottom: "0.75rem",
           }}
         >
-          · Master Mechanics ·
+          {h.brandLine}
         </p>
         <h1
           style={{
@@ -79,6 +79,7 @@ export default function Hero() {
         <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
           <a
             href="#booking"
+            className="focus-ring"
             style={{
               background: "var(--orange)",
               color: "#000",
@@ -97,6 +98,7 @@ export default function Hero() {
             href="https://t.me/Master_Mechanics_Assistant_bot"
             target="_blank"
             rel="noreferrer"
+            className="focus-ring"
             style={{
               background: "transparent",
               color: "var(--white)",

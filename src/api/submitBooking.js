@@ -1,16 +1,18 @@
-/**
- * Отправка заявки с формы записи.
- * TODO: подключить Telegram Bot API или backend-webhook — уведомление в чат мастеров.
- */
-export async function submitBooking(form) {
-  // Пример будущей интеграции:
-  // const res = await fetch("/api/booking", {
-  //   method: "POST",
-  //   headers: { "Content-Type": "application/json" },
-  //   body: JSON.stringify(form),
-  // });
-  // if (!res.ok) throw new Error("Не удалось отправить заявку");
+import { BOOKING_WEBHOOK_URL } from "../constants/api.js";
 
-  await Promise.resolve(form);
-  return { ok: true };
+/**
+ * @param {{ name: string, phone: string, car: string, service: string, comment: string, language: string }} payload
+ */
+export async function submitBooking(payload) {
+  const res = await fetch(BOOKING_WEBHOOK_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  if (!res.ok) throw new Error("submit failed");
+  try {
+    return await res.json();
+  } catch {
+    return { ok: true };
+  }
 }

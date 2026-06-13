@@ -47,7 +47,7 @@ export default function Services() {
 
   return (
     <section id="services" style={{ padding: "6rem 5vw", background: "var(--dark)", position: "relative", overflow: "hidden" }}>
-      <div style={{ position: "absolute", right: "-2%", top: "50%", transform: "translateY(-50%)", fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(6rem,14vw,14rem)", color: "rgba(240,90,0,.04)", pointerEvents: "none", whiteSpace: "nowrap" }}>SERVICES</div>
+      <div aria-hidden="true" style={{ position: "absolute", right: "-2%", top: "50%", transform: "translateY(-50%)", fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(6rem,14vw,14rem)", color: "rgba(240,90,0,.04)", pointerEvents: "none", whiteSpace: "nowrap" }}>{t.a11y.servicesWatermark}</div>
       <SectionTag>{s.tag}</SectionTag>
       <SectionTitle>{s.title}</SectionTitle>
       <p style={{ fontSize: "1rem", color: "var(--gray)", maxWidth: 560, lineHeight: 1.7, marginBottom: "3rem" }}>{s.desc}</p>

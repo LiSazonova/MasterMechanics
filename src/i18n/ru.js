@@ -4,8 +4,15 @@ export const ru = {
     description:
       "Master Mechanics — автосервис полного цикла в Одессе. Диагностика, ремонт, ТО, кузовные и малярные работы.",
   },
+  a11y: {
+    language: "Язык",
+    logo: "Master Mechanics — главная",
+    logoDecorative: "Master Mechanics",
+    servicesWatermark: "Услуги",
+  },
   nav: {
     services: "Услуги",
+    why: "Почему мы",
     prices: "Цены",
     process: "Как мы работаем",
     reviews: "Отзывы",
@@ -19,6 +26,7 @@ export const ru = {
     title: "Ваше авто —",
     titleAccent: "наша работа.",
     desc: "Профессиональный ремонт и восстановление автомобилей любой сложности. Американские машины, сложные случаи, полный цикл — от диагностики до малярных работ. Честно. Быстро. С гарантией.",
+    brandLine: "· Master Mechanics ·",
     bookOnline: "Записаться онлайн →",
     telegram: "Написать в Telegram",
     stats: [
@@ -102,7 +110,9 @@ export const ru = {
     service: "Услуга",
     comment: "Комментарий",
     namePlaceholder: "Александр",
+    phonePlaceholder: "+38 099 000 00 00",
     carPlaceholder: "BMW X5, 2019",
+    formAriaLabel: "Форма записи на ремонт",
     commentPlaceholder: "Кратко опишите проблему",
     selectService: "Выберите...",
     submit: "Отправить заявку",
@@ -110,7 +120,6 @@ export const ru = {
     successTitle: "Заявка принята",
     successDesc: "Перезвоним в течение 30 минут.",
     newRequest: "Новая заявка",
-    fillRequired: "Заполните имя и телефон",
     submitError: "Не удалось отправить заявку. Попробуйте позже или позвоните нам.",
     errors: {
       nameRequired: "Укажите имя",
@@ -165,6 +174,7 @@ export const ru = {
     mapTitle: "Master Mechanics на карте",
   },
   footer: {
-    rights: "© 2025 Master Mechanics. Все права защищены.",
+    brand: "Master Mechanics",
+    rights: "Все права защищены.",
   },
 };
