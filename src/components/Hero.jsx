@@ -1,5 +1,6 @@
 import SectionTag from "./ui/SectionTag";
 import { useLanguage } from "../i18n/useLanguage";
+import { TELEGRAM_HREF } from "../data/constants";
 
 export default function Hero() {
   const { t } = useLanguage();
@@ -95,7 +96,7 @@ export default function Hero() {
             {h.bookOnline}
           </a>
           <a
-            href="https://t.me/Master_Mechanics_Assistant_bot"
+            href={TELEGRAM_HREF}
             target="_blank"
             rel="noreferrer"
             className="focus-ring"
