@@ -1,10 +1,10 @@
-import { BOOKING_WEBHOOK_URL } from "../constants/api.js";
+import { BOOKING_API_URL } from "../constants/api.js";
 
 /**
  * @param {{ name: string, phone: string, car: string, service: string, comment: string, language: string }} payload
  */
 export async function submitBooking(payload) {
-  const res = await fetch(BOOKING_WEBHOOK_URL, {
+  const res = await fetch(BOOKING_API_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
