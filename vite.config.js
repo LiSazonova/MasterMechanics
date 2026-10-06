@@ -37,6 +37,15 @@ function devBookingApi(env) {
           res.end();
           return;
         }
+        if (req.method === "GET") {
+          const configured = Boolean(
+            env.TELEGRAM_BOT_TOKEN && env.TELEGRAM_CHAT_ID,
+          );
+          res.statusCode = 200;
+          res.setHeader("Content-Type", "application/json");
+          res.end(JSON.stringify({ status: "ok", service: "booking", configured }));
+          return;
+        }
         if (req.method !== "POST") {
           res.statusCode = 405;
           res.setHeader("Content-Type", "application/json");

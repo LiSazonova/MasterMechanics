@@ -1,8 +1,15 @@
 import { handleBooking } from "../lib/bookingHandler.js";
 
 export default async function handler(req, res) {
+  if (req.method === "GET") {
+    const configured = Boolean(
+      process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_CHAT_ID,
+    );
+    return res.status(200).json({ status: "ok", service: "booking", configured });
+  }
+
   if (req.method !== "POST") {
-    res.setHeader("Allow", "POST");
+    res.setHeader("Allow", "GET, POST");
     return res.status(405).json({ error: "Method not allowed" });
   }
 

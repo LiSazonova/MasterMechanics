@@ -2,7 +2,7 @@ export const en = {
   meta: {
     title: "Master Mechanics | Auto Repair & Maintenance",
     description:
-      "Professional auto repair, diagnostics and maintenance services. Fast booking, experienced mechanics and transparent pricing.",
+      "Professional auto repair, diagnostics and maintenance in Odesa. Book online — we confirm by phone. EN / UA / RU.",
   },
   a11y: {
     language: "Language",
@@ -65,17 +65,17 @@ export const en = {
       { num: "01", title: "Honest diagnostics", text: "We show the issue before repair. No hidden work — only what your car actually needs." },
       { num: "02", title: "Warranty on all work", text: "Written warranty provided. If something is wrong — we fix it for free." },
       { num: "03", title: "US car expertise", text: "We specialize in restoring vehicles from US auctions. We know all the nuances." },
-      { num: "04", title: "Online booking & reminders", text: "Book via Telegram bot. We remind you a day before your visit and about scheduled service in 6 months." },
+      { num: "04", title: "Online booking", text: "Request a visit on this website — we call back to confirm. You can also message us on Telegram." },
     ],
   },
   process: {
     tag: "How it works",
     title: "Simple process",
     steps: [
-      { num: "1", title: "Booking", text: "Online via website or Telegram bot. Pick a convenient time in 2 minutes." },
+      { num: "1", title: "Booking", text: "Submit the form on this site or message us on Telegram. We call back to agree on a time." },
       { num: "2", title: "Diagnostics", text: "Full diagnostics, work list and cost approval — no surprises." },
-      { num: "3", title: "Repair", text: "We work strictly per the agreed plan. Updates via Telegram." },
-      { num: "4", title: "Done!", text: "Pick up your car with warranty card. We'll remind you about service in 6 months." },
+      { num: "3", title: "Repair", text: "We work strictly per the agreed plan. We keep you updated by phone or Telegram." },
+      { num: "4", title: "Done!", text: "Pick up your car with warranty card. We'll note when your next service is due." },
     ],
   },
   prices: {
@@ -169,6 +169,8 @@ export const en = {
     address: "Address",
     addressVal: "117/1a Levitan St., box 11\nOdesa",
     phone: "Phone",
+    telegram: "Telegram",
+    telegramAction: "Message us →",
     hours: "Hours",
     hoursVal: "Mon–Sat: 10:00 – 20:00\nSun: by appointment",
     mapTitle: "Master Mechanics on map",

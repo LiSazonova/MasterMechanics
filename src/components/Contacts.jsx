@@ -1,7 +1,7 @@
 import SectionTag from "./ui/SectionTag";
 import SectionTitle from "./ui/SectionTitle";
 import FadeBox from "./ui/FadeBox";
-import { PHONE, PHONE_HREF } from "../data/constants";
+import { PHONE, PHONE_HREF, TELEGRAM_HREF } from "../data/constants";
 import { useLanguage } from "../i18n/useLanguage";
 import { getMapEmbedUrl } from "../constants/maps";
 
@@ -12,6 +12,7 @@ export default function Contacts() {
   const contactItems = [
     { icon: "📍", label: c.address, val: c.addressVal },
     { icon: "📞", label: c.phone, val: PHONE, href: PHONE_HREF },
+    { icon: "✈️", label: c.telegram, val: c.telegramAction, href: TELEGRAM_HREF, external: true },
     { icon: "🕐", label: c.hours, val: c.hoursVal },
   ];
 
@@ -27,7 +28,16 @@ export default function Contacts() {
               <div>
                 <div style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: "0.65rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--orange)", marginBottom: "0.25rem" }}>{item.label}</div>
                 {item.href
-                  ? <a href={item.href} className="focus-ring" style={{ fontSize: "0.95rem", color: "var(--white)", textDecoration: "none" }}>{item.val}</a>
+                  ? (
+                    <a
+                      href={item.href}
+                      className="focus-ring"
+                      style={{ fontSize: "0.95rem", color: "var(--white)", textDecoration: "none" }}
+                      {...(item.external ? { target: "_blank", rel: "noreferrer" } : {})}
+                    >
+                      {item.val}
+                    </a>
+                  )
                   : <div style={{ fontSize: "0.95rem", color: "var(--white)", whiteSpace: "pre-line" }}>{item.val}</div>
                 }
               </div>
