@@ -3,30 +3,13 @@ import { translations, DEFAULT_LANG } from "./translations";
 import { LanguageContext } from "./context";
 import { updateDocumentMeta } from "./updateDocumentMeta";
 
-const STORAGE_KEY = "mm-lang";
-
-function getInitialLang() {
-  try {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved && translations[saved]) return saved;
-  } catch {
-    /* ignore */
-  }
-  return DEFAULT_LANG;
-}
-
 export function LanguageProvider({ children }) {
-  const [lang, setLangState] = useState(getInitialLang);
+  const [lang, setLangState] = useState(DEFAULT_LANG);
   const t = translations[lang];
 
   const setLang = useCallback((code) => {
     if (!translations[code]) return;
     setLangState(code);
-    try {
-      localStorage.setItem(STORAGE_KEY, code);
-    } catch {
-      /* ignore */
-    }
   }, []);
 
   useEffect(() => {
